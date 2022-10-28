@@ -1,0 +1,62 @@
+# To get started:
+#
+# pip install -r requirements.txt
+# mkdocs serve
+# Or just see the README
+#
+# ----------------------------------------------------------------------
+site_name: Preserv Documentation
+theme: material
+markdown_extensions:
+  - attr_list
+  - admonition
+  - codehilite
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tilde
+  - markdown_include.include:
+      base_path: docs
+repo_url:  https://github.com/APTrust/preserv-docs
+nav:
+  - Home: index.md
+  - Overview: overview.md
+  - Components:
+      - components/index.md
+      - components/redis.md
+      - components/nsq.md
+      - components/workers.md
+      - components/registry.md
+  - Workers:
+      - workers/index.md
+      - Ingest:
+          - workers/queue/apt-queue.md
+          - workers/ingest/pre-fetch.md
+          - workers/ingest/validator.md
+          - workers/ingest/reingest-checker.md
+          - workers/ingest/staging-uploader.md
+          - workers/ingest/format-identifier.md
+          - workers/ingest/preservation-uploader.md
+          - workers/ingest/preservation-verifier.md
+          - workers/ingest/recorder.md
+          - workers/ingest/cleanup.md
+      - Fixity:
+          - workers/queue/queue-fixity.md
+          - workers/fixity/fixity_checker.md
+      - Restoration:
+          - workers/restoration/bag-restorer.md
+          - workers/restoration/file-restorer.md
+          - workers/restoration/glacier-restorer.md
+      - Deletion: workers/deleter.md
+  - Settings: settings.md
+  - Docker: docker.md
+  - Testing: testing.md
