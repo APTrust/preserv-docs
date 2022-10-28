@@ -36,10 +36,12 @@ nav:
       - components/nsq.md
       - components/workers.md
       - components/registry.md
+      - components/s3.md
   - Workers:
       - workers/index.md
       - Ingest:
-          - workers/queue/apt-queue.md
+          - workers/ingest/index.md
+          - workers/ingest/apt-queue.md
           - workers/ingest/pre-fetch.md
           - workers/ingest/validator.md
           - workers/ingest/reingest-checker.md
@@ -50,13 +52,15 @@ nav:
           - workers/ingest/recorder.md
           - workers/ingest/cleanup.md
       - Fixity:
-          - workers/queue/queue-fixity.md
-          - workers/fixity/fixity_checker.md
+          - workers/fixity/index.md
+          - workers/fixity/queue-fixity.md
+          - workers/fixity/fixity-checker.md
       - Restoration:
+          - workers/restoration/index.md
           - workers/restoration/bag-restorer.md
           - workers/restoration/file-restorer.md
           - workers/restoration/glacier-restorer.md
-      - Deletion: workers/deleter.md
+      - Deletion: workers/deletion.md
   - Settings: settings.md
   - Docker: docker.md
   - Testing: testing.md
