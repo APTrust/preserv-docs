@@ -6,6 +6,16 @@ In general, Preserv functions should be broken down into the simplest possible u
 
 These goals are not always possible, especially for functions that interact with outside resources, but we should take them as guidelines in our coding practice.
 
+## TL;DR
+
+To run the entire test suite:
+
+```
+./scipts/test.rb integration && ./scripts/test.rb e2e
+```
+
+Nerds and masochists, read on.
+
 ## The Test Script
 
 The `test.rb` script in the scripts folder manages unit, integration and end-to-end tests. In addition to running test suites, it orchestrates the start-up and shut down of external services such as Minio, NSQ, Redis and Registry. That is, it runs a full APTrust environment on your local machine, with a local Minio server standing in for S3 and Glacier.

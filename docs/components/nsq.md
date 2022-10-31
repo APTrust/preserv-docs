@@ -152,10 +152,12 @@ All NSQ admin features are available to APTrust admins through the Registry UI. 
 
     The most graceful way to stop all processing in the system is to pause
     all of the topics and channels. The workers will complete the items in
-    their internal go routine queues and will then sit idle. When you
-    unpause the topics and channels, workers will resume work immediately.
+    their internal go routine queues and will then sit idle.
+
     The Registry UI includes a feature to pause and unpause all topics
-    and/or channels at once.
+    and/or channels at once. When paused, topics will continue to queue
+    new tasks, but will not pass those tasks out to workers. When you
+    unpause the topics and channels, workers will resume work immediately.
 
 ## Manually Requeuing
 
