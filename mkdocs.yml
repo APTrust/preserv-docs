@@ -44,7 +44,7 @@ nav:
           - workers/ingest/apt-queue.md
           - workers/ingest/pre-fetch.md
           - workers/ingest/validator.md
-          - workers/ingest/reingest-checker.md
+          - workers/ingest/reingest-manager.md
           - workers/ingest/staging-uploader.md
           - workers/ingest/format-identifier.md
           - workers/ingest/preservation-uploader.md
