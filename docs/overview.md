@@ -14,15 +14,35 @@ While other parts of this documentation describe the components in detail, this 
 
 The components of the system are divided into three privilege zones, with privileges enforced by IAM roles and policies.
 
-Depositors have access to the leftmost zone in the diagram below. They can upload files into their own receiving buckets for ingest, and download them from their own restoration buckets for retrieval. Depositors can access only their own buckets, no one elses.
+Depositors have access to the leftmost zone in the diagram below. They can upload files into their own receiving buckets for ingest, and download them from their own restoration buckets for retrieval. Depositors can access only their own buckets, no one else's.
+
+![](img/architecture/Preserv-Zones-01.drawio.png)
 
 The rightmost zone is preservation storage. No one can access this except the IAM account of the Go workers, which has full access, and APTrust admins, who have read-only access.
 
+![](img/architecture/Preserv-Zones-03.drawio.png)
+
 The Go service workers move items from depositor receiving buckets on the left into long-term preservation storage buckets on the right. They also move items from long-term storage back to depositor restoration buckets. The workers keep temporary housekeeping data about items in process in Redis/Elasticache, and store permanent data in the Registry. All of the working components of the system--all services using CPU and memory--live in the middle zone.
+
+![](img/architecture/Preserv-Zones-02.drawio.png)
 
 Depositors cannot access anything in the middle zone. APTrust administrators can, generally through the AWS console and CloudFormation templates.
 
+The diagram below shows all of the components in their respective zones. Details follow below.
+
 ![High level diagram showing zones and components](img/architecture/Preserv.drawio.png)
+
+!!! Note
+
+    These diagrams omit two containers that run cron jobs. The bucket
+    reader, also called `apt_queue`, scans depositor receiving buckets
+    for new ingests. It creates an ingest WorkItem for each new bag and
+    queues it in the NSQ `ingest01_prefetch` topic.
+
+    The `apt_queue_fixity` worker runs every half hour or so, queueing
+    files for fixity checks. Files stored in S3 and Wasabi are checked
+    every 90 days.
+
 
 # Ingest
 
@@ -128,3 +148,53 @@ The recorder records metadata about the ingest in the Registry, including info a
 The cleanup worker deletes the original bag from the depositor's receiving bucket, then deletes all interim processing data from the S3 staging bucket and Redis. Finally, it marks the ingest as complete in the Registry and in NSQ.
 
 ![](img/architecture/Preserv-Ingest-10-Cleanup.drawio.png)
+
+# Restoration
+
+APTrust users initiate object and file restoration through the Registry Web UI. They click a button to restore either an individual file, or an entire intellectual object (a bag).
+
+![](img/architecture/Preserv-Restoration-01.drawio.png)
+
+Clicking the button causes Registry to create a restoration WorkItem, and to add the WorkItem ID to one of three NSQ topics:
+
+* restore_object is the topic for object restoration.
+* restore_file is for file restoration.
+* restore_glacier is for Glacier restoration.
+
+Glacier restoration requires an extra step of moving files from an inaccessible Glacier vault into an accessible S3 bucket so the files can be restored. Once the Glacier restorer gets the necessary files into an accessible S3 bucket, it pushes the restoration request into the normal `restore_object` or `restore_file` topics.
+
+File restorations involve copying only a single file into a depositor's restoration bucket. Object restorations require gathering and re-bagging sets of files and moving the whole tarred bag into the restoration bucket.
+
+![](img/architecture/Preserv-Restoration-02.drawio.png)
+
+While the file restorer ensures a file's checksums are correct before making a restoration copy, the object restorer reassembles and validates an entire bag full of files. It does this on the fly, streaming files into a bag in the restoration bucket without those files ever touching local disk. It calculates checksums as it goes, ensuring the bag is valid and complete. If the bag is not valid or is incomplete, the restoration WorkItem will be marked as failed in the Registry.
+
+![](img/architecture/Preserv-Restoration-03.drawio.png)
+
+Note that because we rebuild bags when we restore them, the restored bag will not exactly match the original bag. The payload should be the same (unless the depositor deleted some files before the restoration), but the order of files within the tar archive may differ.
+
+In addition, we store both the bag-info.txt and aptrust-info.txt files with the payload in preservation, and we give those back to the depositor upon restoration. Depositors have been storing essential metadata in bag-info and aptrust-info, and they want that info back when they do a restoration.
+
+# Deletion
+
+Deletions are also initiated in the Registry. Once a deletion request has been created and approved by an institutional admin, Registry creates a deletion WorkItem and queues it in NSQ's `delete_item` topic.
+
+![](img/architecture/Preserv-Deletion-01.drawio.png)
+
+For file deletions, the deletion worker deletes all copies of the specified file from all known locations. That's typically either one S3 bucket, one Glacier vault, or one Wasabi bucket. Items in Standard storage are deleted from both S3 in Virginia and Glacier in Oregon.
+
+For object deletions, the deletion worker deletes all copies of all files that belong to the specified object.
+
+After deletion, the worker records deletion Premis events for all of the deleted files, changes the state of those files from `A` (active) to `D` (deleted) in the Registry, and marks the WorkItem as done. For object deletions, the worker changes the object state to `D` and records a deletion Premis event for the object.
+
+# Fixity Checks
+
+A containerized cron job called `apt_queue_fixity` runs every half hour or so, asking the Registry for a list of files stored in S3 or Wasabi that have not had a fixity check in the past 90 days. We do not check fixity on items in Glacier or Glacier Deep storage.
+
+`apt_queue_fixity` pushes the Generic File IDs of files needing a fixity check into the `fixity_check` queue, usually in batches of 2,500 or 3,000.
+
+![](img/architecture/Preserv-Fixity.drawio.png)
+
+The fixity checker calculates checksums on the bitstream coming from S3 or Wasabi. The files never touch local disk. It records the results of each fixity check in a Premis event.
+
+The fixity checker is the only worker whose tasks are not recorded in WorkItems. It would be excessive to do so, since the system has performed over a hundred million checks, and all the data we need to capture from a check is captured in the Premis event.
