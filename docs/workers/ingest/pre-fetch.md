@@ -1,6 +1,6 @@
-# apt_pre_fetch: The Metadata Gatherer
+# The Metadata Gatherer
 
-The apt\_pre\_fetch streams a bag from a depositor's receiving bucket though a series of functions to do the following:
+The metadata gatherer, ingest_pre_fetch, streams a bag from a depositor's receiving bucket though a series of functions to do the following:
 
 * Calculate checksums on all files in the bag.
 * Parse the bag's tag files.

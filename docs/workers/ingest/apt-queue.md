@@ -1,6 +1,6 @@
-# apt_queue: Filling the Ingest Queue
+# The Bucket Reader
 
-apt_queue runs as a cron job inside its own container. It scans all receiving buckets belonging to all depositors for new items. (Items here means tar files containing BagIt bags for ingest.)
+The bucket reader, apt_queue, runs as a cron job inside its own container. It scans all receiving buckets belonging to all depositors for new items. (Items here means tar files containing BagIt bags for ingest.)
 
 When it finds items in receiving buckets, it does the following:
 
