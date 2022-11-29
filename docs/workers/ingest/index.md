@@ -4,6 +4,8 @@ The ingest process consists of 10 workers: one is cron job and the rest are serv
 
 In the table below, the Name is the friendly name of the service or worker, while the Executable is the name of the compiled binary. "Reads From" describes the name of the NSQ topic from which the worker gathers its tasks. "Pushes To" is the name of the NSQ topic to which a worker pushes its task upon successful completion.
 
+Except for the Bucket Reader, all workers use Redis to keep track of interim processing data. They read from Redis to see what past workers have done, and they write to Redis to tell future workers what they have done. For more on what goes into Redis, see the [Redis documentation](/components/redis/)
+
 Click the name of any item in the table for more details.
 
 | Order | Name | Executable | Description | Reads From | Pushes To |

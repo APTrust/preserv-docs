@@ -177,9 +177,12 @@ Now let's look at a file record.
 		"digest": "813f03c186f0cf350e4a7b23eb1c757e",
 		"source": "manifest"
 	}],
-	"copied_to_staging_at": "0001-01-01T00:00:00Z",
-	"format_identified_at": "0001-01-01T00:00:00Z",
-	"file_modified": "0001-01-01T00:00:00Z",
+	"copied_to_staging_at": "2022-11-28T03:00:00Z",
+	"file_format": "image/png"
+	"format_identified_by": "siegfried",
+    "format_identified_at": "2022-11-28T02:00:00Z",
+    "format_match_type": "signature",
+    "file_modified": "2022-11-26T00:00:00Z",
 	"is_reingest": false,
 	"needs_save": true,
 	"object_identifier": "virginia.edu/LibraETD-0r9673755",
