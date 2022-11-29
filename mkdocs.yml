@@ -51,15 +51,8 @@ nav:
           - workers/ingest/preservation-verifier.md
           - workers/ingest/recorder.md
           - workers/ingest/cleanup.md
-      - Fixity:
-          - workers/fixity/index.md
-          - workers/fixity/queue-fixity.md
-          - workers/fixity/fixity-checker.md
-      - Restoration:
-          - workers/restoration/index.md
-          - workers/restoration/bag-restorer.md
-          - workers/restoration/file-restorer.md
-          - workers/restoration/glacier-restorer.md
+      - Fixity: workers/fixity.md
+      - Restoration: workers/restoration.md
       - Deletion: workers/deletion.md
   - Settings: settings.md
   - Docker: docker.md
