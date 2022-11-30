@@ -52,3 +52,24 @@ After you've built new containers, follow these steps to deploy them manually th
 1. Submit.
 
 You can then monitor changes under the events tab. Failures will roll back automatically. Give about 10 minutes before worrying it has failed.
+
+## List of Containers
+
+| Name | Executable | Service | Description |
+| ---- | ---------- | ------- | ----------- |
+| [Bucket Reader](/workers/ingest/apt-queue) | apt_ queue | Ingest | A cron job that scans for new items in receiving buckets. Creates an ingest work item in Registry and pushes the work item ID into NSQ.
+| [Metadata Gatherer](/workers/ingest/pre-fetch) | apt_ pre_fetch | Ingest | Streams a bag from a receiving bucket through a number of functions to calculate checksums and parse tag files and manifests. Saves tag files and manifests to S3 staging bucket. Saves all other metadata to Redis.
+| [Bag Validator](/workers/ingest/validator) | ingest_ validator | Ingest | Analyzes the metdata gathered by apt_pre_fetch to ensure bag is valid. If bag is invalid, processing stops here. | ingest02_ bag_ validation
+| [Reingest Manager](/workers/ingest/reingest-manager) | reingest_ manager | Ingest | Checks to see if the bag has ever been ingested before. If so, checks to see which files are new or updated.
+| [Staging Uploader](/workers/ingest/staging-uploader) | ingest_ staging_ uploader | Ingest | Unpacks the tarred bag from the receiving bucket and stores its individual files in a temporary staging bucket, where other workers can access them.
+| [Format Identifier](/workers/ingest/format-identifier) | ingest_ format_ identifier | Ingest | Streams files from the staging bucket through the Siegfried format identifier, which matches byte streams against a Pronom registry.
+| [Preservation Uploader](/workers/ingest/preservation-uploader) | ingest_ preservation_ uploader | Ingest | Uploads files to long-term preservation buckets in S3, Glacier, and/or Wasabi.
+| [Preservation Verifier](/workers/ingest/preservation-verifier) | ingest_ preservation_ verifier | Ingest | Verifies that the files copied into long-term preservation actually arrived intact and are accessible.
+| [Ingest Recorder](/workers/ingest/recorder) | ingest_ recorder | Ingest | Records details of an ingest in the Registry.
+| [Cleanup](/workers/ingest/cleanup) | ingest_ cleanup | Ingest | Cleans up temporary resources no longer required after ingest. These include files in the staging bucket, metadata records in Redis, and the tarred bag in the receiving bucket.
+| [Queue Fixity](/workers/fixity/) | apt_ queue_ fixity | Fixity Check | Cron job that queues Generic Files for scheduled fixity checks.
+| [Fixity Checker](/workers/fixity/) | apt_ fixity | Fixity Check | Worker that permforms scheduled fixity checks.
+| [Glacier Restorer](/workers/restoration/#glacier-restoration) | glacier_ restorer | Restoration | Moves files from Glacier and Glacier Deep Archive into S3 so they can be restored.
+| [File Restorer](/workers/restoration/#file-restoration) | file_restorer | Restoration | Restores individual files to depositor restoration buckets.
+| [Bag Restorer](/workers/restoration/#object-restoration) | bag_ restorer | Restoration | Restores entire bags (intellectual objects) to depositor restoration buckets.
+| [Deletion Worker](/workers/deletion/) | apt_delete | Deletion | Permanently deletes files and objects from preservation storage.
