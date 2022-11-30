@@ -10,7 +10,7 @@ Click the name of any item in the table for more details.
 
 | Order | Name | Executable | Description | Reads From | Pushes To |
 | ----- | ---- | ---------- | ----------- | ---------- | --------- |
-| 0 | [Bucket Reader](apt-queue.md) | apt_ queue | A cron job that scans for new items in receiving buckets. Creates an ingest work item in Registry and pushes the work item ID into NSQ. | None | ingest01_ prefetch |
+| 0 | [Bucket Reader](bucket-reader.md) | ingest_ bucket_ reader | A cron job that scans for new items in receiving buckets. Creates an ingest work item in Registry and pushes the work item ID into NSQ. | None | ingest01_ prefetch |
 | 1 | [Metadata Gatherer](pre-fetch.md) | apt_ pre_fetch | Streams a bag from a receiving bucket through a number of functions to calculate checksums and parse tag files and manifests. Saves tag files and manifests to S3 staging bucket. Saves all other metadata to Redis. | ingest01_ prefetch | ingest02_ bag_ validation |
 | 2 | [Bag Validator](validator.md) | ingest_ validator | Analyzes the metdata gathered by apt_pre_fetch to ensure bag is valid. If bag is invalid, processing stops here. | ingest02_ bag_ validation | ingest03_ reingest_ check |
 | 3 | [Reingest Manager](reingest-manager.md) | reingest_ manager | Checks to see if the bag has ever been ingested before. If so, checks to see which files are new or updated. | ingest03_ reingest_ check | ingest04_ staging |

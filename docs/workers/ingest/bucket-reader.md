@@ -1,15 +1,15 @@
 # The Bucket Reader
 
-The bucket reader, apt_queue, runs as a cron job inside its own container. It scans all receiving buckets belonging to all depositors for new items. (Items here means tar files containing BagIt bags for ingest.)
+The bucket reader, ingest_bucket_reader, runs as a cron job inside its own container. It scans all receiving buckets belonging to all depositors for new items. (Items here means tar files containing BagIt bags for ingest.)
 
 When it finds items in receiving buckets, it does the following:
 
 1. Checks the Registry to see if a WorkItem exists with action `Ingest` for the tar file. It matches based on the name and etag of the tar file and the ID of the institution that owns the bucket.
-2. If a matching WorkItem exists, apt_queue does nothing. If there is no matching item...
-3. apt_queue creates an Ingest WorkItem for the bag.
-4. apt_queue adds the WorkItem ID to NSQ's `ingest_01_prefetch` topic.
+2. If a matching WorkItem exists, ingest_bucket_reader does nothing. If there is no matching item...
+3. ingest_bucket_reader creates an Ingest WorkItem for the bag.
+4. ingest_bucket_reader adds the WorkItem ID to NSQ's `ingest_01_prefetch` topic.
 
-apt_queue logs what it does with every item it encounters, and why. If you want to know what it's doing, check the container logs in CloudWatch.
+ingest_bucket_reader logs what it does with every item it encounters, and why. If you want to know what it's doing, check the container logs in CloudWatch.
 
 ## Why cron? Why not use S3 events and lambdas?
 

@@ -34,14 +34,21 @@ The diagram below shows all of the components in their respective zones. Details
 
 !!! Note
 
-    These diagrams omit two containers that run cron jobs. The bucket
-    reader, also called `apt_queue`, scans depositor receiving buckets
-    for new ingests. It creates an ingest WorkItem for each new bag and
-    queues it in the NSQ `ingest01_prefetch` topic.
+    These diagrams omit three containers that run cron jobs. The bucket
+    reader, scans depositor receiving buckets for new ingests. It creates
+    an ingest WorkItem for each new bag and queues it in the NSQ
+    `ingest01_prefetch` topic.
 
     The `apt_queue_fixity` worker runs every half hour or so, queueing
     files for fixity checks. Files stored in S3 and Wasabi are checked
     every 90 days.
+
+    The `apt_queue` cron job queues deletion and restoration requests
+    created by Registry users. Those requests should be queued automatically
+    by Registry itself. If they're not, `apt_queue` will find them. This
+    cron job is a vestige from the old, unreliable Pharos system, which did
+    occasionally fail at queueing requests. It may no longer be needed,
+    but we'll keep it around as a failsafe.
 
 
 # Ingest
@@ -58,7 +65,7 @@ Ingest workers perform a number of functions, including bag validation, format i
 
 ## NSQ
 
-NSQ keeps track of which tasks need to go to which workers. For Ingest, a cron job running in the `apt_queue` container creates and queues new WorkItems for each new bag that shows up in a receiving bucket.
+NSQ keeps track of which tasks need to go to which workers. For Ingest, a cron job running in the `ingest_bucket_reader` container creates and queues new WorkItems for each new bag that shows up in a receiving bucket.
 
 For deletion and restoration, users make requests through the Registry Web UI, and Registry pushes the WorkItem IDs into NSQ's deletion and restoration topics.
 

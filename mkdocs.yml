@@ -41,7 +41,7 @@ nav:
       - workers/index.md
       - Ingest:
           - workers/ingest/index.md
-          - workers/ingest/apt-queue.md
+          - workers/ingest/bucket-reader.md
           - workers/ingest/pre-fetch.md
           - workers/ingest/validator.md
           - workers/ingest/reingest-manager.md

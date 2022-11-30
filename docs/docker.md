@@ -1,6 +1,6 @@
 # Docker
 
-All Preserv components run in Docker containers in Amazon's Fargate service. All except the two cron jobs, `apt_queue` and `apt_queue_fixity`, scale automatically based on ECS triggers.
+All Preserv components run in Docker containers in Amazon's Fargate service. All except the three cron jobs, `ingest_bucket_reader`, `apt_queue` and `apt_queue_fixity`, scale automatically based on ECS triggers. The cron jobs don't need to scale because their workload is so light.
 
 There are 17 containers in all. Each container includes a single executable. The [Makefile](https://github.com/APTrust/preservation-services/blob/master/Makefile){target=_blank} generates the containers with the following commands:
 
@@ -55,9 +55,11 @@ You can then monitor changes under the events tab. Failures will roll back autom
 
 ## List of Containers
 
+The Preserv suite includes 17 containers. The workers inside these containers are compiled by the [Makefile](https://github.com/APTrust/preservation-services/blob/master/Makefile){target=_blank} from sources in Preserv's [apps directory](https://github.com/APTrust/preservation-services/tree/master/apps){target=_blank}
+
 | Name | Executable | Service | Description |
 | ---- | ---------- | ------- | ----------- |
-| [Bucket Reader](/workers/ingest/apt-queue) | apt_ queue | Ingest | A cron job that scans for new items in receiving buckets. Creates an ingest work item in Registry and pushes the work item ID into NSQ.
+| [Bucket Reader](/workers/ingest/bucket-reader) | ingest_ bucket_ reader | Ingest | A cron job that scans for new items in receiving buckets. Creates an ingest work item in Registry and pushes the work item ID into NSQ.
 | [Metadata Gatherer](/workers/ingest/pre-fetch) | apt_ pre_fetch | Ingest | Streams a bag from a receiving bucket through a number of functions to calculate checksums and parse tag files and manifests. Saves tag files and manifests to S3 staging bucket. Saves all other metadata to Redis.
 | [Bag Validator](/workers/ingest/validator) | ingest_ validator | Ingest | Analyzes the metdata gathered by apt_pre_fetch to ensure bag is valid. If bag is invalid, processing stops here. | ingest02_ bag_ validation
 | [Reingest Manager](/workers/ingest/reingest-manager) | reingest_ manager | Ingest | Checks to see if the bag has ever been ingested before. If so, checks to see which files are new or updated.
@@ -73,3 +75,4 @@ You can then monitor changes under the events tab. Failures will roll back autom
 | [File Restorer](/workers/restoration/#file-restoration) | file_restorer | Restoration | Restores individual files to depositor restoration buckets.
 | [Bag Restorer](/workers/restoration/#object-restoration) | bag_ restorer | Restoration | Restores entire bags (intellectual objects) to depositor restoration buckets.
 | [Deletion Worker](/workers/deletion/) | apt_delete | Deletion | Permanently deletes files and objects from preservation storage.
+| APT Queue | apt_queue | Restoration and Deletion | Queues deletion and restoration requests created by Registry users. Those requests should be queued automatically by Registry itself. If they're not, `apt_queue` will find them. This cron job is a vestige from the old, unreliable Pharos system, which did occasionally fail at queueing requests. It may no longer be needed, but we'll keep it around as a failsafe.
