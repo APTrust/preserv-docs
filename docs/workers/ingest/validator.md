@@ -54,9 +54,9 @@ For info on the structure of a bag's interim data in the staging bucket, see the
 
 ## External Services
 
-This worker talks to:
-
-* S3 staging bucket
-* Redis
-* Registry
-* NSQ
+| Service | Function |
+| ------- | -------- |
+| S3 Staging Bucket | Worker reads manifests and tag files from staging during the validation process. Checksums calculated by the metadata gatherer and stored in Redis should match checksums in the manifests stored in the staging bucket.
+| Redis | Worker retrieves object and file metadata from Redis. It updates these JSON records to reflect the work it has done.
+| Registry | Source of WorkItem record describing work to be done.
+| NSQ | Distributes WorkItem IDs to workers and tracks their status.

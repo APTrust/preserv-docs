@@ -12,10 +12,10 @@ The preservation uploader can use substantial amounts of memory and network I/O.
 
 ## External Services
 
-This worker talks to:
-
-* S3 Staging Bucket
-* Preservation Buckets
-* Redis
-* Registry
-* NSQ
+| Service | Function |
+| ------- | -------- |
+| S3 Staging Bucket | Worker copies files from staging to long-term storage.
+| Preservation Buckets | Worker copies files from staging to long-term storage. Preservation buckets may include S3, Glacier, Glacier Deep Archive, and Wasabi.
+| Redis | Worker adds storage records to each file record in Redis. The storage record describes which preservation bucket(s) the file was copied to and when. For standard storage, each file ends up with two storage records, one for S3/Virginia and one for Glacier/Oregon. All other storage options result in a single storage record.
+| Registry | Source of WorkItem record describing work to be done.
+| NSQ | Distributes WorkItem IDs to workers and tracks their status.

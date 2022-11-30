@@ -36,10 +36,10 @@ Like all other ingest workers, the staging uploader keeps track of which tasks i
 
 ## External Services
 
-This worker talks to:
-
-* S3 Receiving Buckets
-* S3 Staging Bucket
-* Redis
-* Registry
-* NSQ
+| Service | Function |
+| ------- | -------- |
+| S3 Receiving Buckets | Worker reads tar files from depositor receiving buckets, extracting payload files and tag files to be copied to staging.
+| S3 Staging Bucket | Worker copies payload files and tag files to from receiving bucket to staging bucket. Files go into staging with a UUID key, not their actual file name.
+| Redis | Worker updates Redis file records to indicate files have been copied to staging.
+| Registry | Source of WorkItem record describing work to be done.
+| NSQ | Distributes WorkItem IDs to workers and tracks their status.

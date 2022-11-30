@@ -23,10 +23,10 @@ This worker uses little CPU and memory. It may issue a lot of deletion requests 
 
 ## External Services
 
-This worker talks to:
-
-* S3 Staging Bucket
-* S3 Receiving Buckets
-* Redis
-* Registry
-* NSQ
+| Service | Function |
+| ------- | -------- |
+| S3 Staging Bucket | Worker deletes all temp files related to this ingest from the staging bucket.
+| S3 Receiving Buckets | Worker deletes the tar file uploaded by the depositor from the receiving bucket.
+| Redis | Worker deletes all metadata related to this ingest from Redis.
+| Registry | Source of WorkItem record describing work to be done. Worker marks the ingest WorkItem complete.
+| NSQ | Worker marks the NSQ task complete.

@@ -66,12 +66,12 @@ The `bag_restorer` can use considerable memory, CPU and bandwidth when restoring
 
 ## External Services
 
-This worker talks to:
-
-* Glacier
-* Glacier Deep Archive
-* S3 Preservation Buckets
-* Wasabi Preservation Buckets
-* S3 Restoration Buckets
-* Registry
-* NSQ
+| Service | Function |
+| ------- | -------- |
+| S3 Preservation Buckets | Long-term storage area from which files are restored.
+| Glacier Preservation Buckets | Long-term storage area from which files are restored.
+| Glacier Deep Archive Buckets | Long-term storage area from which files are restored.
+| Wasabi Buckets | Long-term storage area from which files are restored.
+| S3 Restoration Buckets | Depositor buckets to which files and bags are restored.
+| Registry | Source of WorkItem record describing work to be done.
+| NSQ | Distributes WorkItem IDs to workers and tracks their status.

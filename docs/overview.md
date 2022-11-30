@@ -35,9 +35,9 @@ The diagram below shows all of the components in their respective zones. Details
 !!! Note
 
     These diagrams omit three containers that run cron jobs. The bucket
-    reader, scans depositor receiving buckets for new ingests. It creates
-    an ingest WorkItem for each new bag and queues it in the NSQ
-    `ingest01_prefetch` topic.
+    reader, `ingest_bucket_reader`, scans depositor receiving buckets
+    for new ingests. It creates an ingest WorkItem for each new bag and
+    queues it in the NSQ `ingest01_prefetch` topic.
 
     The `apt_queue_fixity` worker runs every half hour or so, queueing
     files for fixity checks. Files stored in S3 and Wasabi are checked

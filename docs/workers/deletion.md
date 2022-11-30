@@ -18,11 +18,11 @@ For items using the `Standard` storage option, `apt_delete` expunges both the S3
 
 ## External Services
 
-This worker talks to:
-
-* S3 Preservation Buckets
-* Glacier Preservation Buckets
-* Glacier Deep Archive Buckets
-* Wasabi Buckets
-* Registry
-* NSQ
+| Service | Function |
+| ------- | -------- |
+| S3 Preservation Buckets | Long-term storage area from which files are deleted.
+| Glacier Preservation Buckets | Long-term storage area from which files are deleted.
+| Glacier Deep Archive Buckets | Long-term storage area from which files are deleted.
+| Wasabi Buckets | Long-term storage area from which files are deleted.
+| Registry | Source of WorkItem record describing work to be done. Deletion workers update files and objects, and create deletion Premis events here.
+| NSQ | Distributes WorkItem IDs to workers and tracks their status.

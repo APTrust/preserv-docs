@@ -34,9 +34,9 @@ Fixity checks use substantial bandwidth and CPU. Checking large files may also u
 
 ## External Services
 
-This worker talks to:
-
-* S3 Preservation Buckets
-* Wasabi Preservation Buckets
-* Registry
-* NSQ
+| Service | Function |
+| ------- | -------- |
+| S3 Preservation Buckets | Long-term storage area from which files are retrieved for fixity checks.
+| Wasabi Buckets | Long-term storage area from which files are retrieved for fixity checks.
+| Registry | Source of Generic File IDs requiring fixity check. The checker saves fixity checks Premis events here.
+| NSQ | Distributes Generic File IDs to workers and tracks their status.

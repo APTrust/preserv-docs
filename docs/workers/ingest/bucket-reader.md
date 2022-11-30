@@ -25,8 +25,8 @@ To put it another way, why do extra work to lock yourself into vendor-specific s
 
 ## External Services
 
-This worker talks to:
-
-* S3 receiving buckets
-* Registry
-* NSQ
+| Service | Function |
+| ------- | -------- |
+| S3 Receiving Buckets | The reader scans depositor receiving buckets for new bags (tar files) to be ingested.
+| Registry | The reader creates new WorkItems here for each bag awaiting ingest.
+| NSQ | The reader adds WorkItem IDs for bags awaiting ingest to NSQ's `ingest01_pre_fetch` topic.

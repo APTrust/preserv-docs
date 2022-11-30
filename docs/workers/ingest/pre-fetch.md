@@ -30,10 +30,10 @@ This worker uses a substantial amount of network bandwidth (streaming bags from 
 
 ## External Services
 
-This worker talks to:
-
-* S3 receiving buckets
-* S3 staging bucket
-* Redis
-* Registry
-* NSQ
+| Service | Function |
+| ------- | -------- |
+| S3 Receiving Buckets | Worker reads tar files from depositor receiving buckets.
+| S3 Staging Bucket | Worker copies manifests and tag files (but not other files) to the staging bucket for later access by the bag validator.
+| Redis | Worker saves metadata about the bag and all of its files in JSON format to Redis, where all subsequent workers can access it.
+| Registry | Source of WorkItem record describing work to be done.
+| NSQ | Distributes WorkItem IDs to workers and tracks their status.

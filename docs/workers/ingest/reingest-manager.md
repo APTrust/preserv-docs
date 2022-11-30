@@ -20,8 +20,8 @@ In typical cases, this results in a dozen or so calls to each service. In very r
 
 ## External Services
 
-This worker talks to:
-
-* Redis
-* Registry
-* NSQ
+| Service | Function |
+| ------- | -------- |
+| Redis | Worker retrieves object and file metadata to get identifiers that it will look up in Registry. It flags files being reingested and files needing to be saved, then saves the info back to Redis so the preservation uploader will know which files to copy to long-term storage, and what UUIDs to use as keys (S3 file names).
+| Registry | Source of WorkItem record describing work to be done. The worker queries Registry to look for existing object and file records that would indicate that the current bag is a reingest.
+| NSQ | Distributes WorkItem IDs to workers and tracks their status.

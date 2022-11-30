@@ -26,9 +26,9 @@ In either case, simply requeing the item in the Registry fixes the problem. Requ
 
 ## External Services
 
-This worker talks to:
-
-* S3 Staging Bucket - to read files
-* Redis - to get and set interim processing data
-* Registry - to get and update WorkItem
-* NSQ - to get WorkItem ID and push to next queue
+| Service | Function |
+| ------- | -------- |
+| S3 Staging Bucket | Worker streams files from staging through a format identification function to determine file format.
+| Redis | Worker updates file records in Redis with file format and some metadata about how the file format was determined.
+| Registry | Source of WorkItem record describing work to be done.
+| NSQ | Distributes WorkItem IDs to workers and tracks their status.
