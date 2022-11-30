@@ -40,3 +40,12 @@ Fixity checks use substantial bandwidth and CPU. Checking large files may also u
 | Wasabi Buckets | Long-term storage area from which files are retrieved for fixity checks.
 | Registry | Source of Generic File IDs requiring fixity check. The checker saves fixity checks Premis events here.
 | NSQ | Distributes Generic File IDs to workers and tracks their status.
+
+## Source Files
+
+| File | Description |
+| ---- | ----------- |
+| [](){target=_blank} | |
+| [](){target=_blank} | |
+| [](){target=_blank} | |
+| [](){target=_blank} | |

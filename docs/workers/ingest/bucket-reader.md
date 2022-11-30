@@ -30,3 +30,12 @@ To put it another way, why do extra work to lock yourself into vendor-specific s
 | S3 Receiving Buckets | The reader scans depositor receiving buckets for new bags (tar files) to be ingested.
 | Registry | The reader creates new WorkItems here for each bag awaiting ingest.
 | NSQ | The reader adds WorkItem IDs for bags awaiting ingest to NSQ's `ingest01_pre_fetch` topic.
+
+## Source Files
+
+| File | Description |
+| ---- | ----------- |
+| [](){target=_blank} | |
+| [](){target=_blank} | |
+| [](){target=_blank} | |
+| [](){target=_blank} | |

@@ -36,3 +36,13 @@ The recorder creates quite a bit of network chatter between itself, Redis and Re
 | Redis | Worker gathers all object and file metadata to be recorded in Registry.
 | Registry | Source of WorkItem record describing work to be done. Worker records all object and file metadata (plus checksums, storage records and Premis events) related to this ingest.
 | NSQ | Distributes WorkItem IDs to workers and tracks their status.
+
+
+## Source Files
+
+| File | Description |
+| ---- | ----------- |
+| [](){target=_blank} | |
+| [](){target=_blank} | |
+| [](){target=_blank} | |
+| [](){target=_blank} | |

@@ -26,3 +26,12 @@ For items using the `Standard` storage option, `apt_delete` expunges both the S3
 | Wasabi Buckets | Long-term storage area from which files are deleted.
 | Registry | Source of WorkItem record describing work to be done. Deletion workers update files and objects, and create deletion Premis events here.
 | NSQ | Distributes WorkItem IDs to workers and tracks their status.
+
+## Source Files
+
+| File | Description |
+| ---- | ----------- |
+| [](){target=_blank} | |
+| [](){target=_blank} | |
+| [](){target=_blank} | |
+| [](){target=_blank} | |

@@ -16,3 +16,12 @@ Though this worker may issue a number of S3 requests, it does not use much netwo
 | Redis | Worker updates file records to indicate that files have been verified in preservation storage.
 | Registry | Source of WorkItem record describing work to be done.
 | NSQ | Distributes WorkItem IDs to workers and tracks their status.
+
+## Source Files
+
+| File | Description |
+| ---- | ----------- |
+| [](){target=_blank} | |
+| [](){target=_blank} | |
+| [](){target=_blank} | |
+| [](){target=_blank} | |

@@ -19,3 +19,12 @@ The preservation uploader can use substantial amounts of memory and network I/O.
 | Redis | Worker adds storage records to each file record in Redis. The storage record describes which preservation bucket(s) the file was copied to and when. For standard storage, each file ends up with two storage records, one for S3/Virginia and one for Glacier/Oregon. All other storage options result in a single storage record.
 | Registry | Source of WorkItem record describing work to be done.
 | NSQ | Distributes WorkItem IDs to workers and tracks their status.
+
+## Source Files
+
+| File | Description |
+| ---- | ----------- |
+| [](){target=_blank} | |
+| [](){target=_blank} | |
+| [](){target=_blank} | |
+| [](){target=_blank} | |

@@ -75,3 +75,12 @@ The `bag_restorer` can use considerable memory, CPU and bandwidth when restoring
 | S3 Restoration Buckets | Depositor buckets to which files and bags are restored.
 | Registry | Source of WorkItem record describing work to be done.
 | NSQ | Distributes WorkItem IDs to workers and tracks their status.
+
+## Source Files
+
+| File | Description |
+| ---- | ----------- |
+| [](){target=_blank} | |
+| [](){target=_blank} | |
+| [](){target=_blank} | |
+| [](){target=_blank} | |

@@ -32,3 +32,12 @@ In either case, simply requeing the item in the Registry fixes the problem. Requ
 | Redis | Worker updates file records in Redis with file format and some metadata about how the file format was determined.
 | Registry | Source of WorkItem record describing work to be done.
 | NSQ | Distributes WorkItem IDs to workers and tracks their status.
+
+## Source Files
+
+| File | Description |
+| ---- | ----------- |
+| [](){target=_blank} | |
+| [](){target=_blank} | |
+| [](){target=_blank} | |
+| [](){target=_blank} | |

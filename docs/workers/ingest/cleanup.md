@@ -30,3 +30,12 @@ This worker uses little CPU and memory. It may issue a lot of deletion requests 
 | Redis | Worker deletes all metadata related to this ingest from Redis.
 | Registry | Source of WorkItem record describing work to be done. Worker marks the ingest WorkItem complete.
 | NSQ | Worker marks the NSQ task complete.
+
+## Source Files
+
+| File | Description |
+| ---- | ----------- |
+| [](){target=_blank} | |
+| [](){target=_blank} | |
+| [](){target=_blank} | |
+| [](){target=_blank} | |

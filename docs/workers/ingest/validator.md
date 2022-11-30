@@ -60,3 +60,12 @@ For info on the structure of a bag's interim data in the staging bucket, see the
 | Redis | Worker retrieves object and file metadata from Redis. It updates these JSON records to reflect the work it has done.
 | Registry | Source of WorkItem record describing work to be done.
 | NSQ | Distributes WorkItem IDs to workers and tracks their status.
+
+## Source Files
+
+| File | Description |
+| ---- | ----------- |
+| [](){target=_blank} | |
+| [](){target=_blank} | |
+| [](){target=_blank} | |
+| [](){target=_blank} | |

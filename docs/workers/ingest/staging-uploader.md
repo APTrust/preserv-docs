@@ -43,3 +43,12 @@ Like all other ingest workers, the staging uploader keeps track of which tasks i
 | Redis | Worker updates Redis file records to indicate files have been copied to staging.
 | Registry | Source of WorkItem record describing work to be done.
 | NSQ | Distributes WorkItem IDs to workers and tracks their status.
+
+## Source Files
+
+| File | Description |
+| ---- | ----------- |
+| [](){target=_blank} | |
+| [](){target=_blank} | |
+| [](){target=_blank} | |
+| [](){target=_blank} | |

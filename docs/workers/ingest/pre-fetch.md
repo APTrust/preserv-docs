@@ -37,3 +37,12 @@ This worker uses a substantial amount of network bandwidth (streaming bags from 
 | Redis | Worker saves metadata about the bag and all of its files in JSON format to Redis, where all subsequent workers can access it.
 | Registry | Source of WorkItem record describing work to be done.
 | NSQ | Distributes WorkItem IDs to workers and tracks their status.
+
+## Source Files
+
+| File | Description |
+| ---- | ----------- |
+| [](){target=_blank} | |
+| [](){target=_blank} | |
+| [](){target=_blank} | |
+| [](){target=_blank} | |

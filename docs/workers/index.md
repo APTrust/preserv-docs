@@ -68,3 +68,12 @@ Less common fatal errors include:
 
 * Lack of permissions on some essential external resource, such as an S3 bucket. This should not happen after initial launch.
 * A rare problem recording data in Registry. This happens when the ingest recorder is killed by a SIGTERM or SIGINT between the moment of issuing a POST request and being able to process the Registry's response. This does happen on occasion when spot instances die. The symptom is an "identifier already exists" error in a WorkItem note. When this occurs, an APTrust admin should delete the WorkItem's registry data and requeue the item back to the `Receive/Pending` stage. Thanks to the reingest manager, the system is smart enough to handle this case intelligently.
+
+## Source Files
+
+| File | Description |
+| ---- | ----------- |
+| [](){target=_blank} | |
+| [](){target=_blank} | |
+| [](){target=_blank} | |
+| [](){target=_blank} | |
