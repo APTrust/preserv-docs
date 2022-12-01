@@ -39,6 +39,7 @@ nav:
       - components/s3.md
   - Workers:
       - workers/index.md
+      - workers/anatomy.md
       - Ingest:
           - workers/ingest/index.md
           - workers/ingest/bucket-reader.md
@@ -57,3 +58,4 @@ nav:
   - Settings: settings.md
   - Docker: docker.md
   - Testing: testing.md
+  - Auditor: auditor.md

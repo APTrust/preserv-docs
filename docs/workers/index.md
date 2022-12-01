@@ -73,7 +73,9 @@ Less common fatal errors include:
 
 | File | Description |
 | ---- | ----------- |
-| [](){target=_blank} | |
-| [](){target=_blank} | |
-| [](){target=_blank} | |
-| [](){target=_blank} | |
+| [ingest/base.go](https://github.com/APTrust/preservation-services/blob/master/ingest/base.go){target=_blank} | The base ingest worker includes methods and properties common to all ingest workers. It also defines the Run() interface that all ingest workers implement. |
+| [workers/base.go](https://github.com/APTrust/preservation-services/blob/master/workers/base.go){target=_blank} | The worker base class defines methods and fields common to all workers. While ingest/base is concerned with a worker's internal operations, worker/base is concerned with how a worker interacts with its context, including NSQ, Registry, Redis and S3. The base worker is essentially a framework containing essential methods, objects (like the Context object) and channels. Each worker customizes the basic framework to do its job. See "workers" below. |
+| [workers](https://github.com/APTrust/preservation-services/tree/master/workers){target=_blank} | The workers directory includes a file for each worker. These files simply pass in a configuration to the base worker, telling it which NSQ topics to read from and write to, and defining functions to process tasks and handle errors. |
+| [restoration/base.go](https://github.com/APTrust/preservation-services/blob/master/restoration/base.go){target=_blank} | The base restoration worker. |
+[deletion/manager.go](https://github.com/APTrust/preservation-services/blob/master/deletion/manager.go){target=_blank} | Handles file and object deletion. |
+| [apps](https://github.com/APTrust/preservation-services/tree/master/apps){target=_blank} | The apps directory contains a simple harness for each worker to be compiled into a standalone executable. |
