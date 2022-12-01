@@ -40,9 +40,6 @@ This worker uses a substantial amount of network bandwidth (streaming bags from 
 
 ## Source Files
 
-| File | Description |
-| ---- | ----------- |
-| [](){target=_blank} | |
-| [](){target=_blank} | |
-| [](){target=_blank} | |
-| [](){target=_blank} | |
+| Worker | Service | Files | Definition |
+| ------ | ------- | ----- | ---------- |
+| Metadata Gatherer | Ingest | [Task](https://github.com/APTrust/preservation-services/blob/master/ingest/metadata_gatherer.go){target=_blank} <br/> [Worker](https://github.com/APTrust/preservation-services/blob/master/workers/ingest_pre_fetch.go){target=_blank} <br/> [App](https://github.com/APTrust/preservation-services/blob/master/apps/ingest_pre_fetch/ingest_pre_fetch.go){target=_blank} | Parses a bag's tag files, calculates checksums on bag contents, and copies manifests and tag files to the ingest staging bucket. |

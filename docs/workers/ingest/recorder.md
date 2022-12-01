@@ -40,9 +40,6 @@ The recorder creates quite a bit of network chatter between itself, Redis and Re
 
 ## Source Files
 
-| File | Description |
-| ---- | ----------- |
-| [](){target=_blank} | |
-| [](){target=_blank} | |
-| [](){target=_blank} | |
-| [](){target=_blank} | |
+| Worker | Service | Files | Definition |
+| ------ | ------- | ----- | ---------- |
+| Ingest Recorder | Ingest | [Task](https://github.com/APTrust/preservation-services/blob/master/ingest/recorder.go){target=_blank} <br/> [Worker](https://github.com/APTrust/preservation-services/blob/master/workers/ingest_recorder.go){target=_blank} <br/> [App](https://github.com/APTrust/preservation-services/blob/master/apps/ingest_recorder/ingest_recorder.go){target=_blank} | Records all ingest data in Registry. |

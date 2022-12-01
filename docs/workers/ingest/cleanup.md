@@ -33,9 +33,6 @@ This worker uses little CPU and memory. It may issue a lot of deletion requests 
 
 ## Source Files
 
-| File | Description |
-| ---- | ----------- |
-| [](){target=_blank} | |
-| [](){target=_blank} | |
-| [](){target=_blank} | |
-| [](){target=_blank} | |
+| Worker | Service | Files | Definition |
+| ------ | ------- | ----- | ---------- |
+| Cleanup | Ingest | [Task](https://github.com/APTrust/preservation-services/blob/master/ingest/cleanup.go){target=_blank} <br/> [Worker](https://github.com/APTrust/preservation-services/blob/master/workers/ingest_cleanup.go){target=_blank} <br/> [App](https://github.com/APTrust/preservation-services/blob/master/apps/ingest_cleanup/ingest_cleanup.go){target=_blank} | Cleans up all of the temporary resources created during the ingest process and deletes ingested bags from receiving buckets. |

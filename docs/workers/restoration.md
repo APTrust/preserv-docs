@@ -78,9 +78,9 @@ The `bag_restorer` can use considerable memory, CPU and bandwidth when restoring
 
 ## Source Files
 
-| File | Description |
-| ---- | ----------- |
-| [](){target=_blank} | |
-| [](){target=_blank} | |
-| [](){target=_blank} | |
-| [](){target=_blank} | |
+| Worker | Service | Files | Definition |
+| ------ | ------- | ----- | ---------- |
+| Glacier Restorer | Restoration | [Task](https://github.com/APTrust/preservation-services/blob/master/restoration/glacier_restorer.go){target=_blank} <br/> [Worker](https://github.com/APTrust/preservation-services/blob/master/workers/glacier_restorer.go){target=_blank} <br/> [App](https://github.com/APTrust/preservation-services/blob/master/apps/glacier_restorer/glacier_restorer.go){target=_blank} | Moves files from Glacier into S3 for restoration. |
+| File Restorer | Restoration | [Task](https://github.com/APTrust/preservation-services/blob/master/restoration/file_restorer.go){target=_blank} <br/> [Worker](https://github.com/APTrust/preservation-services/blob/master/workers/file_restorer.go){target=_blank} <br/> [App](https://github.com/APTrust/preservation-services/blob/master/apps/file_restorer/file_restorer.go){target=_blank} | Restores individual files. |
+| Object Restorer | Restoration | [Task](https://github.com/APTrust/preservation-services/blob/master/restoration/bag_restorer.go){target=_blank} <br/> [Worker](https://github.com/APTrust/preservation-services/blob/master/workers/bag_restorer.go){target=_blank} <br/> [App](https://github.com/APTrust/preservation-services/blob/master/apps/bag_restorer/bag_restorer.go){target=_blank} | Restores entire bags (intellectual objects). |
+| APT Queue | Deletion and Restoration | No Task File <br/> [Worker](https://github.com/APTrust/preservation-services/blob/master/workers/apt_queue.go){target=_blank} <br/> [App](https://github.com/APTrust/preservation-services/blob/master/apps/apt_queue/apt_queue.go){target=_blank} | This cron job periodically scans Registry for restoration and deletion requests that have not been queued in NSQ. |

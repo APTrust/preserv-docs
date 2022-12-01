@@ -43,9 +43,7 @@ Fixity checks use substantial bandwidth and CPU. Checking large files may also u
 
 ## Source Files
 
-| File | Description |
-| ---- | ----------- |
-| [](){target=_blank} | |
-| [](){target=_blank} | |
-| [](){target=_blank} | |
-| [](){target=_blank} | |
+| Worker | Service | Files | Definition |
+| ------ | ------- | ----- | ---------- |
+| APT Queue Fixity | Fixity | No Task File <br/> [Worker](https://github.com/APTrust/preservation-services/blob/master/workers/queue_fixity.go){target=_blank} <br/> [App](https://github.com/APTrust/preservation-services/blob/master/apps/apt_queue_fixity/apt_queue_fixity.go){target=_blank} | Queues files for fixity checks. |
+| Fixity Checker | Fixity | [Task](https://github.com/APTrust/preservation-services/blob/master/fixity/checker.go){target=_blank} <br/> [Worker](https://github.com/APTrust/preservation-services/blob/master/workers/fixity_checker.go){target=_blank} <br/> [App](https://github.com/APTrust/preservation-services/blob/master/apps/apt_fixity/apt_fixity.go){target=_blank} | Checks fixity on files in preservation storage. (S3 and Wasabi only. Does not check Glacier files.) |

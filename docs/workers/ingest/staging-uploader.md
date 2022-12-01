@@ -46,9 +46,6 @@ Like all other ingest workers, the staging uploader keeps track of which tasks i
 
 ## Source Files
 
-| File | Description |
-| ---- | ----------- |
-| [](){target=_blank} | |
-| [](){target=_blank} | |
-| [](){target=_blank} | |
-| [](){target=_blank} | |
+| Worker | Service | Files | Definition |
+| ------ | ------- | ----- | ---------- |
+| Staging Uploader | Ingest | [Task](https://github.com/APTrust/preservation-services/blob/master/ingest/staging_uploader.go){target=_blank} <br/> [Worker](https://github.com/APTrust/preservation-services/blob/master/workers/ingest_staging_uploader.go){target=_blank} <br/> [App](https://github.com/APTrust/preservation-services/blob/master/apps/ingest_staging_uploader/ingest_staging_uploader.go){target=_blank} | Copies files from a tarred bag in a receiving bucket to the ingest staging bucket. |

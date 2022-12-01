@@ -28,9 +28,6 @@ In typical cases, this results in a dozen or so calls to each service. In very r
 
 ## Source Files
 
-| File | Description |
-| ---- | ----------- |
-| [](){target=_blank} | |
-| [](){target=_blank} | |
-| [](){target=_blank} | |
-| [](){target=_blank} | |
+| Worker | Service | Files | Definition |
+| ------ | ------- | ----- | ---------- |
+| Reingest Manager | Ingest | [Task](https://github.com/APTrust/preservation-services/blob/master/ingest/reingest_manager.go){target=_blank} <br/> [Worker](https://github.com/APTrust/preservation-services/blob/master/workers/reingest_manager.go){target=_blank} <br/> [App](https://github.com/APTrust/preservation-services/blob/master/apps/reingest_manager/reingest_manager.go){target=_blank} | Checks if a bag is being reingested and if so, applies special processing. |

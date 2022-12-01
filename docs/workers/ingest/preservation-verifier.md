@@ -19,9 +19,6 @@ Though this worker may issue a number of S3 requests, it does not use much netwo
 
 ## Source Files
 
-| File | Description |
-| ---- | ----------- |
-| [](){target=_blank} | |
-| [](){target=_blank} | |
-| [](){target=_blank} | |
-| [](){target=_blank} | |
+| Worker | Service | Files | Definition |
+| ------ | ------- | ----- | ---------- |
+| Preservation Verifier | Ingest | [Task](https://github.com/APTrust/preservation-services/blob/master/ingest/preservation_verifier.go){target=_blank} <br/> [Worker](https://github.com/APTrust/preservation-services/blob/master/workers/ingest_preservation_verifier.go){target=_blank} <br/> [App](https://github.com/APTrust/preservation-services/blob/master/apps/ingest_preservation_verifier/ingest_preservation_verifier.go){target=_blank} | Verifies that files copied to preservation storage are actually there. |

@@ -22,9 +22,6 @@ The preservation uploader can use substantial amounts of memory and network I/O.
 
 ## Source Files
 
-| File | Description |
-| ---- | ----------- |
-| [](){target=_blank} | |
-| [](){target=_blank} | |
-| [](){target=_blank} | |
-| [](){target=_blank} | |
+| Worker | Service | Files | Definition |
+| ------ | ------- | ----- | ---------- |
+| Preservation Uploader | Ingest | [Task](https://github.com/APTrust/preservation-services/blob/master/ingest/preservation_uploader.go){target=_blank} <br/> [Worker](https://github.com/APTrust/preservation-services/blob/master/workers/ingest_preservation_uploader.go){target=_blank} <br/> [App](https://github.com/APTrust/preservation-services/blob/master/apps/ingest_preservation_uploader/ingest_preservation_uploader.go){target=_blank} | Copies files to preservation storage. |

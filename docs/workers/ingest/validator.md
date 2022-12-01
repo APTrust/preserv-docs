@@ -63,9 +63,6 @@ For info on the structure of a bag's interim data in the staging bucket, see the
 
 ## Source Files
 
-| File | Description |
-| ---- | ----------- |
-| [](){target=_blank} | |
-| [](){target=_blank} | |
-| [](){target=_blank} | |
-| [](){target=_blank} | |
+| Worker | Service | Files | Definition |
+| ------ | ------- | ----- | ---------- |
+| Bag Validator | Ingest | [Task](https://github.com/APTrust/preservation-services/blob/master/ingest/metadata_validator.go){target=_blank} <br/> [Worker](https://github.com/APTrust/preservation-services/blob/master/workers/ingest_validator.go){target=_blank} <br/> [App](https://github.com/APTrust/preservation-services/blob/master/apps/ingest_validator/ingest_validator.go){target=_blank} | Validates a bag before ingest. |

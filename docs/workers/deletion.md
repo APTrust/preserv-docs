@@ -29,9 +29,7 @@ For items using the `Standard` storage option, `apt_delete` expunges both the S3
 
 ## Source Files
 
-| File | Description |
-| ---- | ----------- |
-| [](){target=_blank} | |
-| [](){target=_blank} | |
-| [](){target=_blank} | |
-| [](){target=_blank} | |
+| Worker | Service | Files | Definition |
+| ------ | ------- | ----- | ---------- |
+| Deletion Manager | Deletion | [Task](https://github.com/APTrust/preservation-services/blob/master/deletion/manager.go){target=_blank} <br/> [Worker](https://github.com/APTrust/preservation-services/blob/master/workers/deleter.go){target=_blank} <br/> [App](https://github.com/APTrust/preservation-services/blob/master/apps/apt_delete/apt_delete.go){target=_blank} | Deletes files and objects from preservation storage. |
+| APT Queue | Deletion and Restoration | No Task File <br/> [Worker](https://github.com/APTrust/preservation-services/blob/master/workers/apt_queue.go){target=_blank} <br/> [App](https://github.com/APTrust/preservation-services/blob/master/apps/apt_queue/apt_queue.go){target=_blank} | This cron job periodically scans Registry for restoration and deletion requests that have not been queued in NSQ. |

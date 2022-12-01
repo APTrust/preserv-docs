@@ -33,9 +33,6 @@ To put it another way, why do extra work to lock yourself into vendor-specific s
 
 ## Source Files
 
-| File | Description |
-| ---- | ----------- |
-| [](){target=_blank} | |
-| [](){target=_blank} | |
-| [](){target=_blank} | |
-| [](){target=_blank} | |
+| Worker | Service | Files | Definition |
+| ------ | ------- | ----- | ---------- |
+| Bucket Reader | Ingest | No Task File <br/> [Worker](https://github.com/APTrust/preservation-services/blob/master/workers/ingest_bucket_reader.go){target=_blank} <br/>  [App](https://github.com/APTrust/preservation-services/blob/master/apps/ingest_bucket_reader/ingest_bucket_reader.go){target=_blank} | Cron job that scans depositor receiving buckets for new tar files to ingest. |

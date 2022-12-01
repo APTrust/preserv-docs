@@ -35,9 +35,6 @@ In either case, simply requeing the item in the Registry fixes the problem. Requ
 
 ## Source Files
 
-| File | Description |
-| ---- | ----------- |
-| [](){target=_blank} | |
-| [](){target=_blank} | |
-| [](){target=_blank} | |
-| [](){target=_blank} | |
+| Worker | Service | Files | Definition |
+| ------ | ------- | ----- | ---------- |
+| Format Identifier | Ingest | [Task](https://github.com/APTrust/preservation-services/blob/master/ingest/format_identifier.go){target=_blank} <br/> [Worker](https://github.com/APTrust/preservation-services/blob/master/workers/ingest_format_identifier.go){target=_blank} <br/> [App](https://github.com/APTrust/preservation-services/blob/master/apps/ingest_format_identifier/ingest_format_identifier.go){target=_blank} | Identifies the format of files within a bag. |
