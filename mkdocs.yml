@@ -5,7 +5,7 @@
 # Or just see the README
 #
 # ----------------------------------------------------------------------
-site_name: Preserv Documentation
+site_name: APTrust Preservation Services
 theme: material
 markdown_extensions:
   - attr_list
@@ -30,6 +30,7 @@ repo_url:  https://github.com/APTrust/preserv-docs
 nav:
   - Home: index.md
   - Overview: overview.md
+  - Code Structure: structure.md
   - Components:
       - components/index.md
       - components/redis.md

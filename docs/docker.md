@@ -76,12 +76,3 @@ The Preserv suite includes 17 containers. The workers inside these containers ar
 | [Bag Restorer](/workers/restoration/#object-restoration) | bag_ restorer | Restoration | Restores entire bags (intellectual objects) to depositor restoration buckets.
 | [Deletion Worker](/workers/deletion/) | apt_delete | Deletion | Permanently deletes files and objects from preservation storage.
 | APT Queue | apt_queue | Restoration and Deletion | Queues deletion and restoration requests created by Registry users. Those requests should be queued automatically by Registry itself. If they're not, `apt_queue` will find them. This cron job is a vestige from the old, unreliable Pharos system, which did occasionally fail at queueing requests. It may no longer be needed, but we'll keep it around as a failsafe.
-
-## Source Files
-
-| File | Description |
-| ---- | ----------- |
-| [](){target=_blank} | |
-| [](){target=_blank} | |
-| [](){target=_blank} | |
-| [](){target=_blank} | |
