@@ -12,4 +12,4 @@ So you know what it does. In the past, APTrust has created projects like Fluctus
 
 Alrighty, then. I like to be clear, like this guy:
 
-![Now!... That should clear up a few things around here!](/img/clear_things_up.jpg)
+![Now!... That should clear up a few things around here!](../img/clear_things_up.jpg)
