@@ -1,0 +1,1325 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.7">
+    
+    
+      
+        <title>S3 - APTrust Preservation Services</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.20d9efc8.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#s3" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="APTrust Preservation Services" class="md-header__button md-logo" aria-label="APTrust Preservation Services" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            APTrust Preservation Services
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              S3
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/APTrust/preserv-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="APTrust Preservation Services" class="md-nav__button md-logo" aria-label="APTrust Preservation Services" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    APTrust Preservation Services
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/APTrust/preserv-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../structure/" class="md-nav__link">
+        Code Structure
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Components
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Components" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Components
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        Components
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redis/" class="md-nav__link">
+        Redis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nsq/" class="md-nav__link">
+        NSQ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workers/" class="md-nav__link">
+        Workers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../registry/" class="md-nav__link">
+        Registry
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          S3
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        S3
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#receiving-buckets" class="md-nav__link">
+    Receiving Buckets
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#restoration-buckets" class="md-nav__link">
+    Restoration Buckets
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#staging-bucket" class="md-nav__link">
+    Staging Bucket
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preservation-buckets" class="md-nav__link">
+    Preservation Buckets
+  </a>
+  
+    <nav class="md-nav" aria-label="Preservation Buckets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#production-preservation-bucket-names" class="md-nav__link">
+    Production Preservation Bucket Names
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#demo-preservation-bucket-names" class="md-nav__link">
+    Demo Preservation Bucket Names
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#staging-preservation-bucket-names" class="md-nav__link">
+    Staging Preservation Bucket Names
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Workers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Workers" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Workers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workers/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workers/anatomy/" class="md-nav__link">
+        Anatomy of a Worker
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3" type="checkbox" id="__nav_5_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_3">
+          Ingest
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Ingest" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          Ingest
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workers/ingest/" class="md-nav__link">
+        Ingest Workers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workers/ingest/bucket-reader/" class="md-nav__link">
+        The Bucket Reader
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workers/ingest/pre-fetch/" class="md-nav__link">
+        The Metadata Gatherer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workers/ingest/validator/" class="md-nav__link">
+        The Bag Validator
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workers/ingest/reingest-manager/" class="md-nav__link">
+        The Reingest Manager
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workers/ingest/staging-uploader/" class="md-nav__link">
+        The Staging Uploader
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workers/ingest/format-identifier/" class="md-nav__link">
+        The Format Identifier
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workers/ingest/preservation-uploader/" class="md-nav__link">
+        The Preservation Uploader
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workers/ingest/preservation-verifier/" class="md-nav__link">
+        The Preservation Verifier
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workers/ingest/recorder/" class="md-nav__link">
+        The Recorder
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workers/ingest/cleanup/" class="md-nav__link">
+        Cleanup
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workers/fixity/" class="md-nav__link">
+        Fixity
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workers/restoration/" class="md-nav__link">
+        Restoration
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workers/deletion/" class="md-nav__link">
+        Deletion
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../settings/" class="md-nav__link">
+        Settings
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docker/" class="md-nav__link">
+        Docker
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../testing/" class="md-nav__link">
+        Testing
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../auditor/" class="md-nav__link">
+        Auditor
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#receiving-buckets" class="md-nav__link">
+    Receiving Buckets
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#restoration-buckets" class="md-nav__link">
+    Restoration Buckets
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#staging-bucket" class="md-nav__link">
+    Staging Bucket
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preservation-buckets" class="md-nav__link">
+    Preservation Buckets
+  </a>
+  
+    <nav class="md-nav" aria-label="Preservation Buckets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#production-preservation-bucket-names" class="md-nav__link">
+    Production Preservation Bucket Names
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#demo-preservation-bucket-names" class="md-nav__link">
+    Demo Preservation Bucket Names
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#staging-preservation-bucket-names" class="md-nav__link">
+    Staging Preservation Bucket Names
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/APTrust/preserv-docs/edit/master/docs/components/s3.md" title="Edit this page" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<h1 id="s3">S3</h1>
+<p>Preserv uses S3 to recieve bags from depositors, to store them in long-term preservation, and to restore files and objects to depositors. Preserv also uses a staging bucket to process items during ingest. In addition, Glacier, Glacier Deep Archive, and Wasabi provide preservation storage buckets.</p>
+<h2 id="receiving-buckets">Receiving Buckets</h2>
+<p>To deposit materials into APTrust, depositors upload tarred bags to their receiving bucket. A cron job periodically scans receiving buckets for new bags, creating a Registry WorkItem and an NSQ message for each new bag.</p>
+<p>Receiving buckets are accessible to APTrust users and admins at the owning institution. Bucket names follow the patterns below. In each case, <code>inst identifitier</code> is the institution's identifier, which also happens to be its domain name (virginia.edu, georgetown.edu, etc.).</p>
+<div class="highlight"><pre><span></span><code>aptrust.receiving.&lt;inst identifier&gt;          # Production Environment
+aptrust.receiving.test.&lt;inst identifier&gt;     # Demo Environment
+aptrust.receiving.staging.&lt;inst identifier&gt;  # Staging Environment
+</code></pre></div>
+<h2 id="restoration-buckets">Restoration Buckets</h2>
+<p>Users and admins at depositing institutions also have access to their institution's restoration bucket. When a depositor requests a restoration, Preserv copies files and objects to this bucket for depositors to download.</p>
+<p>Restoration buckets follow this naming scheme:</p>
+<div class="highlight"><pre><span></span><code>aptrust.restore.&lt;inst identifier&gt;          # Production Environment
+aptrust.restore.test.&lt;inst identifier&gt;     # Demo Environment
+aptrust.restore.staging.&lt;inst identifier&gt;  # Staging Environment
+</code></pre></div>
+<p>When Preserv restores an entire object, it creates a new bag from all of the object's preserved files and puts the bag in the depositor's restoration bucket. If the University of Virginia were to restore an object called BagOfPhotos, it would appear in the restoration bucket like this:</p>
+<div class="highlight"><pre><span></span><code>aptrust.restore.virginia.edu/BagOfPhotos.tar
+</code></pre></div>
+<p>When restoring a single file from that bag, it would appear in a subdirectory like this:</p>
+<div class="highlight"><pre><span></span><code>aptrust.restore.virginia.edu/BagOfPhotos/data/photo.jpg
+</code></pre></div>
+<h2 id="staging-bucket">Staging Bucket</h2>
+<p>During ingest, the <code>ingest_staging_uploader</code> extracts files from tarred bags in the receiving buckets and copies them into a staging bucket for further processing. The staging bucket is not public and is not accessible to any depositors. Files remain in the staging bucket until ingest completes, at which point the <code>ingest_cleaup</code> worker deletes them.</p>
+<p>If a bag fails ingest due to too many transient errors (usually network errors), its files will remain in the staging bucket so that when an APTrust admin requeues the WorkItem, Preserv can pick up where it left off and continue the ingest.</p>
+<p>The staging buckets are:</p>
+<div class="highlight"><pre><span></span><code>aptrust.prod.staging         # Production environment
+aptrust.test.staging         # Demo environment
+aptrust.staging.staging      # Staging environment
+</code></pre></div>
+<p>If an item fails ingest due to transient errors and an APTrust admin decides to cancel the ingest instead of requeueing it, the admin will need to manually delete the files from staging.</p>
+<p>Inside the staging bucket is a folder for each Ingest WorkItem in process. Inside that folder are the bag's manifests, tag manifests, and tag files, as well as the bag's payload files. Manifests and tag files are stored under the same name they had in the original bag (bag-info.txt, manifest-sha256.txt, etc.). Payload files are stored with UUID names instead of their original paths. They'll have these same UUID names when copied to preservation storage.</p>
+<p>The staging bucket entries for WorkItem 5432 on the demo system would look like this:</p>
+<div class="highlight"><pre><span></span><code>aptrust.test.staging/5432
+aptrust.test.staging/5432/aptrust-info.txt
+aptrust.test.staging/5432/bag-info.txt
+aptrust.test.staging/5432/manifest-sha256.txt
+aptrust.test.staging/5432/1e3fa668-73b7-4885-98e1-f16170b7ad54
+aptrust.test.staging/5432/49c5ebc5-e840-4fcb-b851-c8f02cd4953d
+aptrust.test.staging/5432/5a757826-31a1-406d-a889-83c05c245213
+aptrust.test.staging/5432/e6b32693-6ed9-4974-946c-0ce1808015aa
+</code></pre></div>
+<h2 id="preservation-buckets">Preservation Buckets</h2>
+<p>Preservation buckets are for long-term preservation storage. They are not publicly accessible and nothing inside them is publicly accessible. APTrust admins can list bucket contents and retrieve files but cannot delete anything from these buckets.</p>
+<p>All deletions must be done by the depositing insitution, through the Registry, and all must be approved by an administrator at the depositing institution before Preserv will carry them out.</p>
+<p>Files in the preservation buckets are stored with UUID names and have the following metadata:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x-amz-meta-md5</td>
+<td>The md5 checksum we calculated for this file on the most recent ingest.</td>
+</tr>
+<tr>
+<td>x-amz-meta-sha256</td>
+<td>The sha256 checksum we calculated for this file on the most recent ingest.</td>
+</tr>
+<tr>
+<td>x-amz-meta-bagpath</td>
+<td>The original path the file inside the bag that the depositor submitted. E.g. <code>data/photos/image01.jpg</code>. <strong>Note</strong>: In Wasabi, this field is called <code>x-amz-meta-bagpath-encoded</code>, due to a bug in Wasabi's parsing of HTTP headers. Wasabi will not accept any header with two or more consecutive spaces, which we sometimes encounter in depositor file names. Then encoded version of the bagpath uses URL query string encoding to replace spaces with %20.</td>
+</tr>
+<tr>
+<td>x-amz-meta-institution</td>
+<td>The identifier (domain name) of the institution that owns the bag.</td>
+</tr>
+<tr>
+<td>x-amz-meta-bag</td>
+<td>The Registry's identifier for the bag to which this file belongs. E.g. <code>virginia.edu/BagOfPhotos</code>.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Due to an early depositor decision back in 2014, preservation buckets
+generally do not use encryption. The exceptions are Glacier archives
+and Wasabi buckets, where encryption is mandatory.</p>
+<p>Also due to a 2014 depositor decision, versioning is turned off on all
+preservation buckets. Newer versions of files overwrite older versions.
+If a depositor explicitly wants to save two versions of an object,
+they have to upload bags with names bag <code>BagOfPhotos_v1.tar</code> and
+<code>BagOfPhotos_v2.tar</code>.</p>
+</div>
+<h3 id="production-preservation-bucket-names">Production Preservation Bucket Names</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Storage Option</th>
+<th>Encrypted</th>
+<th>Versioned</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>aptrust.preservation.storage</td>
+<td>Standard</td>
+<td>No</td>
+<td>No</td>
+<td>Standard S3 preservation storage bucket in Virginia. Everything in this bucket is replicated to aptrust.preservation.oregon.</td>
+</tr>
+<tr>
+<td>aptrust.preservation.oregon</td>
+<td>Standard</td>
+<td>Yes</td>
+<td>No</td>
+<td>Glacier storage for items using the stanard storage option. Everything in here is replicated from aptrust.preservation.storage.</td>
+</tr>
+<tr>
+<td>aptrust.preservation.glacier-deep.oh</td>
+<td>Glacier-Deep-OH</td>
+<td>Yes</td>
+<td>No</td>
+<td>Glacier Deep Archive in Ohio.</td>
+</tr>
+<tr>
+<td>aptrust.preservation.glacier-deep.or</td>
+<td>Glacier-Deep-OR</td>
+<td>Yes</td>
+<td>No</td>
+<td>Glacier Deep Archive in Oregon.</td>
+</tr>
+<tr>
+<td>aptrust.preservation.glacier-deep.va</td>
+<td>Glacier-Deep-VA</td>
+<td>Yes</td>
+<td>No</td>
+<td>Glacier Deep Archive in Virginie.</td>
+</tr>
+<tr>
+<td>aptrust.preservation.glacier.oh</td>
+<td>Glacier-OH</td>
+<td>Yes</td>
+<td>No</td>
+<td>Glacier archive in Ohio.</td>
+</tr>
+<tr>
+<td>aptrust.preservation.glacier.or</td>
+<td>Glacier-OR</td>
+<td>Yes</td>
+<td>No</td>
+<td>Glacier archive in Oregon.</td>
+</tr>
+<tr>
+<td>aptrust.preservation.glacier.va</td>
+<td>Glacier-VA</td>
+<td>Yes</td>
+<td>No</td>
+<td>Glacier archive in Virginia.</td>
+</tr>
+<tr>
+<td>aptrust-production-wasabi-or</td>
+<td>Wasabi-OR</td>
+<td>Yes</td>
+<td>No</td>
+<td>Wasabi storage in Oregon.</td>
+</tr>
+<tr>
+<td>aptrust-production-wasabi-va</td>
+<td>Wasabi-VA</td>
+<td>Yes</td>
+<td>No</td>
+<td>Wasabi storage in Virginia.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="demo-preservation-bucket-names">Demo Preservation Bucket Names</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Storage Option</th>
+<th>Encrypted</th>
+<th>Versioned</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>aptrust.test. preservation.storage</td>
+<td>Standard</td>
+<td>No</td>
+<td>No</td>
+<td>Standard S3 preservation storage bucket in Virginia. Everything in this bucket is replicated to aptrust.test. preservation.oregon.</td>
+</tr>
+<tr>
+<td>aptrust.test. preservation.oregon</td>
+<td>Standard</td>
+<td>Yes</td>
+<td>No</td>
+<td>Glacier storage for items using the stanard storage option. Everything in here is replicated from aptrust.test. preservation.storage.</td>
+</tr>
+<tr>
+<td>aptrust.test. preservation.glacier-deep.oh</td>
+<td>Glacier-Deep-OH</td>
+<td>Yes</td>
+<td>No</td>
+<td>Glacier Deep Archive in Ohio.</td>
+</tr>
+<tr>
+<td>aptrust.test. preservation.glacier-deep.or</td>
+<td>Glacier-Deep-OR</td>
+<td>Yes</td>
+<td>No</td>
+<td>Glacier Deep Archive in Oregon.</td>
+</tr>
+<tr>
+<td>aptrust.test. preservation.glacier-deep.va</td>
+<td>Glacier-Deep-VA</td>
+<td>Yes</td>
+<td>No</td>
+<td>Glacier Deep Archive in Virginia.</td>
+</tr>
+<tr>
+<td>aptrust.test. preservation.glacier.oh</td>
+<td>Glacier-OH</td>
+<td>Yes</td>
+<td>No</td>
+<td>Glacier archive in Ohio.</td>
+</tr>
+<tr>
+<td>aptrust.test. preservation.glacier.or</td>
+<td>Glacier-OR</td>
+<td>Yes</td>
+<td>No</td>
+<td>Glacier archive in Oregon.</td>
+</tr>
+<tr>
+<td>aptrust.test. preservation.glacier.va</td>
+<td>Glacier-VA</td>
+<td>Yes</td>
+<td>No</td>
+<td>Glacier archive in Virginia.</td>
+</tr>
+<tr>
+<td>aptrust-demo-wasabi-or</td>
+<td>Wasabi-OR</td>
+<td>Yes</td>
+<td>No</td>
+<td>Wasabi storage in Oregon.</td>
+</tr>
+<tr>
+<td>aptrust-demo-wasabi-va</td>
+<td>Wasabi-VA</td>
+<td>Yes</td>
+<td>No</td>
+<td>Wasabi storage in Virginia.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="staging-preservation-bucket-names">Staging Preservation Bucket Names</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Storage Option</th>
+<th>Encrypted</th>
+<th>Versioned</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>aptrust.staging. preservation.storage</td>
+<td>Standard</td>
+<td>No</td>
+<td>No</td>
+<td>Standard S3 preservation storage bucket in Virginia. Everything in this bucket is replicated to aptrust.staging. preservation.oregon.</td>
+</tr>
+<tr>
+<td>aptrust.staging. preservation.oregon</td>
+<td>Standard</td>
+<td>Yes</td>
+<td>No</td>
+<td>Glacier storage for items using the stanard storage option. Everything in here is replicated from aptrust.staging. preservation.storage.</td>
+</tr>
+<tr>
+<td>aptrust.staging. preservation.glacier-deep.oh</td>
+<td>Glacier-Deep-OH</td>
+<td>Yes</td>
+<td>No</td>
+<td>Glacier Deep Archive in Ohio.</td>
+</tr>
+<tr>
+<td>aptrust.staging. preservation.glacier-deep.or</td>
+<td>Glacier-Deep-OR</td>
+<td>Yes</td>
+<td>No</td>
+<td>Glacier Deep Archive in Oregon.</td>
+</tr>
+<tr>
+<td>aptrust.staging. preservation.glacier-deep.va</td>
+<td>Glacier-Deep-VA</td>
+<td>Yes</td>
+<td>No</td>
+<td>Glacier Deep Archive in Virginia.</td>
+</tr>
+<tr>
+<td>aptrust.staging. preservation.glacier.oh</td>
+<td>Glacier-OH</td>
+<td>Yes</td>
+<td>No</td>
+<td>Glacier archive in Ohio.</td>
+</tr>
+<tr>
+<td>aptrust.staging. preservation.glacier.or</td>
+<td>Glacier-OR</td>
+<td>Yes</td>
+<td>No</td>
+<td>Glacier archive in Oregon.</td>
+</tr>
+<tr>
+<td>aptrust.staging. preservation.glacier.va</td>
+<td>Glacier-VA</td>
+<td>Yes</td>
+<td>No</td>
+<td>Glacier archive in Virginia.</td>
+</tr>
+<tr>
+<td>aptrust-staging-wasabi-or</td>
+<td>Wasabi-OR</td>
+<td>Yes</td>
+<td>No</td>
+<td>Wasabi storage in Oregon.</td>
+</tr>
+<tr>
+<td>aptrust-staging-wasabi-va</td>
+<td>Wasabi-VA</td>
+<td>Yes</td>
+<td>No</td>
+<td>Wasabi storage in Virginia.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../registry/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Registry" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Registry
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../workers/" class="md-footer__link md-footer__link--next" aria-label="Next: Overview" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Overview
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.8492ddcf.min.js"></script>
+      
+    
+  </body>
+</html>

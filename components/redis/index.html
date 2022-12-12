@@ -1,0 +1,1264 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.7">
+    
+    
+      
+        <title>Redis - APTrust Preservation Services</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.20d9efc8.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#redis" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="APTrust Preservation Services" class="md-header__button md-logo" aria-label="APTrust Preservation Services" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            APTrust Preservation Services
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Redis
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/APTrust/preserv-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="APTrust Preservation Services" class="md-nav__button md-logo" aria-label="APTrust Preservation Services" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    APTrust Preservation Services
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/APTrust/preserv-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../structure/" class="md-nav__link">
+        Code Structure
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Components
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Components" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Components
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        Components
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Redis
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Redis
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#structure-of-redis-data" class="md-nav__link">
+    Structure of Redis Data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redis-memory-usage" class="md-nav__link">
+    Redis Memory Usage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#querying-redis" class="md-nav__link">
+    Querying Redis
+  </a>
+  
+    <nav class="md-nav" aria-label="Querying Redis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#getting-a-list-of-keys-workitems" class="md-nav__link">
+    Getting a List of Keys / WorkItems
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listing-records-for-a-key-workitem" class="md-nav__link">
+    Listing Records for a Key / WorkItem
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examining-a-work-result-record" class="md-nav__link">
+    Examining a Work Result Record
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examining-a-file-record" class="md-nav__link">
+    Examining a File Record
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examining-an-object-record" class="md-nav__link">
+    Examining an Object Record
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nsq/" class="md-nav__link">
+        NSQ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workers/" class="md-nav__link">
+        Workers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../registry/" class="md-nav__link">
+        Registry
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../s3/" class="md-nav__link">
+        S3
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Workers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Workers" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Workers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workers/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workers/anatomy/" class="md-nav__link">
+        Anatomy of a Worker
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3" type="checkbox" id="__nav_5_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_3">
+          Ingest
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Ingest" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          Ingest
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workers/ingest/" class="md-nav__link">
+        Ingest Workers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workers/ingest/bucket-reader/" class="md-nav__link">
+        The Bucket Reader
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workers/ingest/pre-fetch/" class="md-nav__link">
+        The Metadata Gatherer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workers/ingest/validator/" class="md-nav__link">
+        The Bag Validator
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workers/ingest/reingest-manager/" class="md-nav__link">
+        The Reingest Manager
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workers/ingest/staging-uploader/" class="md-nav__link">
+        The Staging Uploader
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workers/ingest/format-identifier/" class="md-nav__link">
+        The Format Identifier
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workers/ingest/preservation-uploader/" class="md-nav__link">
+        The Preservation Uploader
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workers/ingest/preservation-verifier/" class="md-nav__link">
+        The Preservation Verifier
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workers/ingest/recorder/" class="md-nav__link">
+        The Recorder
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workers/ingest/cleanup/" class="md-nav__link">
+        Cleanup
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workers/fixity/" class="md-nav__link">
+        Fixity
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workers/restoration/" class="md-nav__link">
+        Restoration
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workers/deletion/" class="md-nav__link">
+        Deletion
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../settings/" class="md-nav__link">
+        Settings
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docker/" class="md-nav__link">
+        Docker
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../testing/" class="md-nav__link">
+        Testing
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../auditor/" class="md-nav__link">
+        Auditor
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#structure-of-redis-data" class="md-nav__link">
+    Structure of Redis Data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redis-memory-usage" class="md-nav__link">
+    Redis Memory Usage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#querying-redis" class="md-nav__link">
+    Querying Redis
+  </a>
+  
+    <nav class="md-nav" aria-label="Querying Redis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#getting-a-list-of-keys-workitems" class="md-nav__link">
+    Getting a List of Keys / WorkItems
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listing-records-for-a-key-workitem" class="md-nav__link">
+    Listing Records for a Key / WorkItem
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examining-a-work-result-record" class="md-nav__link">
+    Examining a Work Result Record
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examining-a-file-record" class="md-nav__link">
+    Examining a File Record
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examining-an-object-record" class="md-nav__link">
+    Examining an Object Record
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/APTrust/preserv-docs/edit/master/docs/components/redis.md" title="Edit this page" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<h1 id="redis">Redis</h1>
+<p>Preserv uses Redis (running as Elasticache in AWS) to hold interim processing data that is accessible to all ingest workers. The first worker in the ingest pipeline, <code>ingest_pre_fetch</code>, reads the contents of a tarred bag from an S3 receiving bucket and records metadata, including:</p>
+<ul>
+<li>General info about the bag, including its name, owning institution, size, number of payload files, and more. The object info also includes parsed versions of the bag's tag files.</li>
+<li>General info about each file in the tarred bag, including it's path, size, and checksums from the bag's manifests.</li>
+<li>A "work result" describing when the worker started its task, when it completed, and any errors it encountered along the way.</li>
+</ul>
+<p>The <code>ingest_pre_fetch</code> worker dumps this data into Redis, in JSON format, so the next worker can access it.</p>
+<p>Each successive worker adds information to the object, file, and work result records in Redis so subsequent workers know what to do with the incoming content. For example, the <code>reingest_manager</code> checks to see if we already have copies of a bag's files in preservation storage. If so, and if the checksums have not changed, it flags the files as not needing to be saved.</p>
+<p>The later workers <code>ingest_preservation_uploader</code> and <code>ingest_preservation_verifier</code> know not to copy these files to preservation storage and not to bother verifying the copies. The <code>ingest_recorder</code> knows not to record new ingest events or checksums for these files.</p>
+<p>We chose Redis as our interim processing cache for a number of reasons:</p>
+<ul>
+<li>The workers often perform huge volumes of reads and writes that would bog down a relational database.</li>
+<li>The data naturally fits into a key-value data store. We don't want or need to decompose the JSON into searchable tables or MongoDB-type documents. We always want the whole blob.</li>
+<li>Interim processing data is ephemeral. We may retain it for a few seconds in the case of small bags, or 2-3 days in the case of larger bags. In most cases, we keep it for 1-10 minutes. Redis' disk-backed "aof" file, which allows in-memory data to persist through reboots, is enough of a durability guarantee for our needs.</li>
+</ul>
+<p>By the time a bag reaches the <code>ingest_recorder</code> worker, the JSON data in Redis contains all of the information we will need to record in the Registry, including:</p>
+<ul>
+<li>The object record, with its title, description, owning institution and other metadata.</li>
+<li>All of the file records, and there can be tens of thousands of these.</li>
+<li>All checksums, premis events, and storage records for all files.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>On live systems, we configure Redis to write to an .aof file
+(append-only file) so that data persists through system reboots.
+On dev and test machines, using an .aof file is optional.</p>
+</div>
+<h2 id="structure-of-redis-data">Structure of Redis Data</h2>
+<p>The key for each WorkItem in Redis is the WorkItem ID. The value is a hash of subkeys. The value for each subkey is a blob of JSON data. Data for an ingest with WorkItem ID 5678 will look like this:</p>
+<div class="highlight"><pre><span></span><code>&quot;5678&quot;
+   &quot;object:example.edu/BagOfPhotos&quot;:            [JSON ~1-3 kb]
+   &quot;workresult:ingest01_prefetch&quot;:              [JSON ~200-500 bytes]
+   &quot;workresult:ingest02_bag_validation&quot;:        [JSON ~200-500 bytes]
+   &quot;workresult:ingest03_reingest_check&quot;:        [JSON ~200-500 bytes ]
+   &quot;workresult:ingest04_staging&quot;:               [JSON ~200-500 bytes ]
+   &quot;workresult:ingest05_format_identification&quot;: [JSON ~200-500 bytes ]
+   &quot;workresult:ingest06_storage&quot;:               [JSON ~200-500 bytes ]
+   &quot;workresult:ingest07_storage_validation&quot;:    [JSON ~200-500 bytes ]
+   &quot;workresult:ingest08_record&quot;:                [JSON ~200-500 bytes ]
+   &quot;workresult:ingest09_cleanup&quot;:               [JSON ~200-500 bytes ]
+   &quot;file:test.edu/BagOfPhotos/file001&quot;          [JSON ~1-3 kb]
+   &quot;file:test.edu/BagOfPhotos/file002&quot;          [JSON ~1-3 kb]
+                   ...
+              Lots more files
+                   ...
+   &quot;file:test.edu/BagOfPhotos/file999&quot;          [JSON ~1-3 kb]
+</code></pre></div>
+<h2 id="redis-memory-usage">Redis Memory Usage</h2>
+<p>As you can see from the outline above, there's a direct linear relation between the number of files in a bag and the amount of interim processing data in Redis. In the past, we've ingested bags with over 300,000 files. Ingesting too many files at once can cause Redis to run out of memory. Consider the impact of Redis keep 300,000 3kb JSON blobs in memory at once.</p>
+<p>Until we update Preserv's code to work with Redis clusters, we're dealing with this issue by running an Elasticache instance with more RAM than we'll typically need. When Preserv works with Redis running in cluster mode, we'll be able to take advantage of AWS auto-scaling for Elasticache.</p>
+<p>Unfortunately, because of the way our workers connect to and query Redis, this will not be a trivial change.</p>
+<h2 id="querying-redis">Querying Redis</h2>
+<p>You can query Redis directly using the redis-cli on your local machine. Simply run <code>redis-cli</code>, and the CLI will connect to your local Redis instance running on the default port of 6379.</p>
+<p>To query Redis/Elasticache in one of the live environments, you'll have to log into a bastion host and run the redis-cli from there. You'll need to look in Parameter Store for the proper Redis/Elasticache endpoint for your current environment. You can then connect with:</p>
+<p><code>redis-cli -h &lt;host name or ip&gt; -p 6379</code></p>
+<h3 id="getting-a-list-of-keys-workitems">Getting a List of Keys / WorkItems</h3>
+<p>Redis records use WorkItem IDs as the main key, and then various subkeys for records related to that WorkItem ID. To get a list of all WorkItem IDs in Redis, run</p>
+<p><code>keys "*"</code></p>
+<p>You should see output like this:</p>
+<div class="highlight"><pre><span></span><code> 1) &quot;24719&quot;
+ 2) &quot;24553&quot;
+ 3) &quot;24627&quot;
+ 4) &quot;24516&quot;
+ 5) &quot;24514&quot;
+ 6) &quot;24796&quot;
+ 7) &quot;24450&quot;
+ 8) &quot;24487&quot;
+ 9) &quot;24764&quot;
+10) &quot;24564&quot;
+11) &quot;24557&quot;
+12) &quot;24657&quot;
+</code></pre></div>
+<p>That shows Redis has records for twelve WorkItems with IDs ranging from 24719 to 24657. Note that because keys in Redis are strings, the IDs are strings, not numbers. The records stored under each WorkItem ID are hashes, each with its own key and value.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Redis documentation warns against running <code>keys "*"</code> in production,
+as it may return millions of results. Because queue sizes are limited
+in our systems, and because we delete Redis data as soon as ingests
+complete, we will generally have fewer than 200 keys at any given
+time. This means it's generally safe to run <code>keys "*"</code> in production.
+However, see the note on listing records for a WorkItem below.</p>
+</div>
+<h3 id="listing-records-for-a-key-workitem">Listing Records for a Key / WorkItem</h3>
+<p>To see what info Redis has about WorkItem 24657, run this:</p>
+<p><code>hkeys "24657"</code></p>
+<p>You'll see output like this:</p>
+<div class="highlight"><pre><span></span><code> 1) &quot;file:virginia.edu/LibraETD-0r9673755/aptrust-info.txt&quot;
+ 2) &quot;workresult:ingest02_bag_validation&quot;
+ 3) &quot;file:virginia.edu/LibraETD-0r9673755/tagmanifest-md5.txt&quot;
+ 4) &quot;file:virginia.edu/LibraETD-0r9673755/manifest-sha256.txt&quot;
+ 5) &quot;file:virginia.edu/LibraETD-0r9673755/data/Phylindia Gant MA 2016&quot;
+ 6) &quot;file:virginia.edu/LibraETD-0r9673755/tagmanifest-sha256.txt&quot;
+ 7) &quot;file:virginia.edu/LibraETD-0r9673755/data/work.json&quot;
+ 8) &quot;file:virginia.edu/LibraETD-0r9673755/bagit.txt&quot;
+ 9) &quot;file:virginia.edu/LibraETD-0r9673755/manifest-md5.txt&quot;
+10) &quot;file:virginia.edu/LibraETD-0r9673755/data/embargo.json&quot;
+11) &quot;workresult:ingest01_prefetch&quot;
+12) &quot;file:virginia.edu/LibraETD-0r9673755/bag-info.txt&quot;
+13) &quot;object:virginia.edu/LibraETD-0r9673755&quot;
+14) &quot;file:virginia.edu/LibraETD-0r9673755/data/fileset-1.json&quot;
+15) &quot;file:virginia.edu/LibraETD-0r9673755/data/Lewis_Gwendolyn_2015.pdf&quot;
+</code></pre></div>
+<p>Note that the keys follow a pattern. Those beginning with <code>file:</code> contain information about a file being ingested. Those beginning with <code>workresult:</code> contain info about the result of a step of the ingest process. So <code>workresult:ingest01_prefetch</code> has info about the result of the pre-fetch step of ingest, while <code>workresult:ingest02_bag_validation</code> has info about the validation step.</p>
+<p>Each ingest WorkItem has a single <code>object:</code> key, composed of the object prefix plus the object identifier. In the case above, it's <code>object:virginia.edu/LibraETD-0r9673755</code>. This key contains information about the object and is discussed below.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Some objects contain hundreds of thousands of files. Running <code>hkeys</code>
+on those will return more info than you want. Try querying the object
+record first and looking at the file count, as described under
+<a href="#examining-an-object-record">Examining an Object Record</a> below.</p>
+</div>
+<h3 id="examining-a-work-result-record">Examining a Work Result Record</h3>
+<p>All of the Redis data is stored in JSON format. Let's see what's in <code>workresult:ingest01_prefetch</code>. We can do that by running the hget command. Note that both the key (24657) and the field (workresult:ingest01_prefetch) must be quoted.</p>
+<p><code>hget "24657" "workresult:ingest01_prefetch"</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;attempt&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;operation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ingest01_prefetch&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;host&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ip-10-0-79-215.ec2.internal&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;pid&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;started_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-10-20T17:37:16.742934015Z&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;finished_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-10-20T17:37:17.665739918Z&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;errors&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>This tells us that after two attempts, the pre-fetch worker succeeded (because there are no errors). We see when the worker started and finished, and the host field tells us which worker did the work.</p>
+<h3 id="examining-a-file-record">Examining a File Record</h3>
+<p>Now let's look at a file record.</p>
+<p><code>hget "24657" "file:virginia.edu/LibraETD-0r9673755/data/Lewis_Gwendolyn_2015.pdf"</code></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;checksums&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;algorithm&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;md5&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;datetime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-10-20T17:36:14.854845867Z&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;digest&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;813f03c186f0cf350e4a7b23eb1c757e&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;manifest&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}],</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;copied_to_staging_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-11-28T03:00:00Z&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;file_format&quot;</span><span class="p">:</span><span class="w"> </span><span class="nt">&quot;image/png&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;format_identified_by&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;siegfried&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;format_identified_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-11-28T02:00:00Z&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;format_match_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;signature&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;file_modified&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-11-26T00:00:00Z&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;is_reingest&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;needs_save&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;object_identifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;virginia.edu/LibraETD-0r9673755&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;path_in_bag&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;data/Lewis_Gwendolyn_2015.pdf&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;registry_urls&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;saved_to_registry_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0001-01-01T00:00:00Z&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;storage_option&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Standard&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;storage_records&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;uuid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bf9d5811-0ad6-43f1-8406-83e14735b4a1&quot;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>This tells us that the file arrived with one checksum in the bag manifest, an md5. It also tells us the UUID that will become the file name in the preservation bucket. This file is bound for Standard storage, but has not yet been copied to staging, run through format identification, or saved to the registry, as those timestamps are all empty.</p>
+<p>This file record will expand as additional workers do their processing. The validation worker will add its own checksums to the checksum list (with source = "ingest" instead of source = "manifest" so we know that we calculated the checksums). The reingest worker will see if this file has ever been ingested before, and may change needs_save to false if the checksum matches the checksum of the copy we already have.</p>
+<h3 id="examining-an-object-record">Examining an Object Record</h3>
+<p>Runing this command to get the object record:</p>
+<p><code>hget "24657" "object:virginia.edu/LibraETD-0r9673755"</code></p>
+<p>We get the following results:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;copied_to_staging_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0001-01-01T00:00:00Z&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;deleted_from_receiving_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0001-01-01T00:00:00Z&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;etag&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ed17d88a33e8c095ab3674e08184b398&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;file_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;has_fetch_txt&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;institution&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;virginia.edu&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;institution_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">34</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;is_reingest&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;manifests&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;md5&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;sha256&quot;</span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;parsable_tag_files&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;bagit.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;bag-info.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;aptrust-info.txt&quot;</span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;recheck_registry_identifiers&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;s3_bucket&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;aptrust.receiving.test.virginia.edu&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;s3_key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LibraETD-0r9673755.tar&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;saved_to_registry_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0001-01-01T00:00:00Z&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;serialization&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;application/tar&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;should_delete_from_receiving&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1576960</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;storage_option&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Standard&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;tag_files&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;bagit.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;bag-info.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;aptrust-info.txt&quot;</span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;tag_manifests&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;md5&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;sha256&quot;</span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;tags&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;tag_file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bagit.txt&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;tag_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BagIt-Version&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.97&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;tag_file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bagit.txt&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;tag_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Tag-File-Character-Encoding&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UTF-8&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;tag_file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bag-info.txt&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;tag_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Bag-Count&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;tag_file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bag-info.txt&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;tag_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Bag-Group-Identifier&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LibraETD&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;tag_file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bag-info.txt&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;tag_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Bag-Software-Agent&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bagit.py v1.8.1 u003chttps://github.com/LibraryOfCongress/bagit-pythonu003e&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;tag_file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bag-info.txt&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;tag_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Bagging-Date&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-06-23&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;tag_file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bag-info.txt&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;tag_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Internal-Sender-Description&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;tag_file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bag-info.txt&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;tag_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Internal-Sender-Identifier&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0r9673755&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;tag_file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bag-info.txt&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;tag_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Payload-Oxum&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1553270.4&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;tag_file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bag-info.txt&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;tag_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Source-Organization&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;virginia.edu&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;tag_file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;aptrust-info.txt&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;tag_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Title&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="err">Alluvial</span><span class="w"> </span><span class="err">Fa</span><span class="kc">ns</span><span class="w"> </span><span class="err">as</span><span class="w"> </span><span class="err">Po</span><span class="kc">tent</span><span class="err">ial</span><span class="w"> </span><span class="err">Si</span><span class="kc">tes</span><span class="w"></span>
+<span class="w">        </span><span class="kc">f</span><span class="err">or</span><span class="w"> </span><span class="err">Preserva</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="w"> </span><span class="err">o</span><span class="kc">f</span><span class="w"> </span><span class="err">Bio</span><span class="w"> </span><span class="mi">-</span><span class="w"> </span><span class="err">sig</span><span class="kc">natures</span><span class="w"> </span><span class="err">o</span><span class="kc">n</span><span class="w"> </span><span class="err">Mars</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;tag_file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;aptrust-info.txt&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;tag_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Description&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="err">Wa</span><span class="kc">ter</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">a</span><span class="kc">n</span><span class="w"> </span><span class="err">impor</span><span class="kc">tant</span><span class="w"> </span><span class="err">ce</span><span class="kc">ntral</span><span class="w"> </span><span class="kc">t</span><span class="err">heme</span><span class="w"> </span><span class="err">i</span><span class="kc">n</span><span class="w"> </span><span class="err">as</span><span class="kc">tr</span><span class="err">obiology.I</span><span class="kc">n</span><span class="w"> </span><span class="err">order</span><span class="w"></span>
+<span class="w">        </span><span class="kc">f</span><span class="err">or</span><span class="w"> </span><span class="err">li</span><span class="kc">fe</span><span class="w"> </span><span class="err">as</span><span class="w"> </span><span class="err">we</span><span class="w"> </span><span class="err">k</span><span class="kc">n</span><span class="err">ow</span><span class="w"> </span><span class="err">i</span><span class="kc">t</span><span class="w"> </span><span class="kc">t</span><span class="err">o</span><span class="w"> </span><span class="err">suppor</span><span class="kc">t</span><span class="w"> </span><span class="err">i</span><span class="kc">tself</span><span class="w"> </span><span class="err">o</span><span class="kc">n</span><span class="w"> </span><span class="err">a</span><span class="kc">n</span><span class="err">o</span><span class="kc">t</span><span class="err">her</span><span class="w"> </span><span class="err">pla</span><span class="kc">net</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="err">a</span><span class="w"> </span><span class="err">o</span><span class="kc">f</span><span class="w"> </span><span class="err">wa</span><span class="kc">ter</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">required.There</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">several</span><span class="w"> </span><span class="err">s</span><span class="w"> </span><span class="err">o</span><span class="kc">f</span><span class="w"> </span><span class="err">wa</span><span class="kc">ter</span><span class="w"> </span><span class="kc">t</span><span class="err">ha</span><span class="kc">t</span><span class="w"> </span><span class="err">have</span><span class="w"> </span><span class="err">bee</span><span class="kc">n</span><span class="w"> </span><span class="err">discovered</span><span class="w"> </span><span class="err">o</span><span class="kc">n</span><span class="w"> </span><span class="err">Mars.A</span><span class="kc">t</span><span class="w"> </span><span class="err">prese</span><span class="kc">nt</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="err">majori</span><span class="kc">t</span><span class="err">y</span><span class="w"> </span><span class="err">o</span><span class="kc">f</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="err">s</span><span class="w"> </span><span class="err">o</span><span class="kc">f</span><span class="w"> </span><span class="err">wa</span><span class="kc">ter</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">u</span><span class="kc">na</span><span class="err">vailable</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="err">bu</span><span class="kc">t</span><span class="w"> </span><span class="kc">t</span><span class="err">here</span><span class="w"> </span><span class="err">were</span><span class="w"> </span><span class="err">periods</span><span class="w"> </span><span class="err">i</span><span class="kc">n</span><span class="w"> </span><span class="err">Marsxe</span><span class="mi">2</span><span class="err">x</span><span class="mi">80</span><span class="err">x</span><span class="mi">99</span><span class="w"> </span><span class="err">geologic</span><span class="w"> </span><span class="err">his</span><span class="kc">t</span><span class="err">ory</span><span class="w"> </span><span class="kc">t</span><span class="err">ha</span><span class="kc">t</span><span class="w"> </span><span class="err">wa</span><span class="kc">ter</span><span class="w"> </span><span class="err">was</span><span class="w"> </span><span class="err">available</span><span class="w"></span>
+<span class="w">        </span><span class="kc">f</span><span class="err">or</span><span class="w"> </span><span class="err">li</span><span class="kc">fe</span><span class="err">.The</span><span class="w"> </span><span class="kc">ne</span><span class="err">x</span><span class="kc">t</span><span class="w"> </span><span class="err">s</span><span class="kc">te</span><span class="err">p</span><span class="w"> </span><span class="err">i</span><span class="kc">n</span><span class="w"> </span><span class="err">discoveri</span><span class="kc">n</span><span class="err">g</span><span class="w"> </span><span class="err">li</span><span class="kc">fe</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">looki</span><span class="kc">n</span><span class="err">g</span><span class="w"></span>
+<span class="w">        </span><span class="kc">f</span><span class="err">or</span><span class="w"> </span><span class="err">bio</span><span class="w"> </span><span class="mi">-</span><span class="w"> </span><span class="err">sig</span><span class="kc">natures</span><span class="err">.Bio</span><span class="w"> </span><span class="mi">-</span><span class="w"> </span><span class="err">sig</span><span class="kc">natures</span><span class="w"> </span><span class="err">ca</span><span class="kc">n</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">a</span><span class="kc">n</span><span class="err">y</span><span class="kc">t</span><span class="err">hi</span><span class="kc">n</span><span class="err">g</span><span class="w"> </span><span class="kc">fr</span><span class="err">om</span><span class="w"> </span><span class="err">iso</span><span class="kc">t</span><span class="err">opes</span><span class="w"> </span><span class="kc">t</span><span class="err">o</span><span class="w"> </span><span class="err">eleme</span><span class="kc">nts</span><span class="w"> </span><span class="kc">t</span><span class="err">o</span><span class="w"> </span><span class="err">DNA.A</span><span class="w"> </span><span class="err">me</span><span class="kc">t</span><span class="err">hod</span><span class="w"> </span><span class="kc">t</span><span class="err">o</span><span class="w"> </span><span class="err">preserve</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="err">bio</span><span class="w"> </span><span class="mi">-</span><span class="w"> </span><span class="err">sig</span><span class="kc">natures</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="kc">ne</span><span class="err">cessary</span><span class="w"> </span><span class="kc">t</span><span class="err">o</span><span class="w"> </span><span class="err">s</span><span class="kc">tu</span><span class="err">dy</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="err">bio</span><span class="w"> </span><span class="mi">-</span><span class="w"> </span><span class="err">sig</span><span class="kc">natures</span><span class="w"> </span><span class="err">i</span><span class="kc">n</span><span class="w"> </span><span class="err">prese</span><span class="kc">nt</span><span class="w"> </span><span class="err">day.Preserved</span><span class="w"> </span><span class="err">bio</span><span class="w"> </span><span class="mi">-</span><span class="w"> </span><span class="err">sig</span><span class="kc">natures</span><span class="w"> </span><span class="err">keep</span><span class="w"> </span><span class="err">i</span><span class="kc">nf</span><span class="err">orma</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="w"> </span><span class="err">abou</span><span class="kc">t</span><span class="w"> </span><span class="err">ex</span><span class="kc">t</span><span class="err">i</span><span class="kc">n</span><span class="err">c</span><span class="kc">t</span><span class="w"> </span><span class="err">Mars</span><span class="w"> </span><span class="err">habi</span><span class="kc">ta</span><span class="err">bili</span><span class="kc">t</span><span class="err">y</span><span class="w"> </span><span class="err">i</span><span class="kc">nta</span><span class="err">c</span><span class="kc">t</span><span class="w"> </span><span class="kc">t</span><span class="err">o</span><span class="w"> </span><span class="err">s</span><span class="kc">tu</span><span class="err">dy</span><span class="w"> </span><span class="kc">furt</span><span class="err">her</span><span class="w"> </span><span class="err">whe</span><span class="kc">n</span><span class="w"> </span><span class="kc">f</span><span class="err">ou</span><span class="kc">n</span><span class="err">d.O</span><span class="kc">ne</span><span class="w"> </span><span class="kc">naturall</span><span class="err">y</span><span class="w"> </span><span class="err">occurri</span><span class="kc">n</span><span class="err">g</span><span class="w"> </span><span class="err">way</span><span class="w"> </span><span class="kc">t</span><span class="err">o</span><span class="w"> </span><span class="err">preserve</span><span class="w"> </span><span class="err">bio</span><span class="w"> </span><span class="mi">-</span><span class="w"> </span><span class="err">sig</span><span class="kc">natures</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">clay</span><span class="w"> </span><span class="err">hydrogels.Clay</span><span class="w"> </span><span class="err">hydrogels</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">bio</span><span class="w"> </span><span class="mi">-</span><span class="w"> </span><span class="err">polymers</span><span class="w"> </span><span class="kc">t</span><span class="err">ha</span><span class="kc">t</span><span class="w"> </span><span class="kc">f</span><span class="err">orm</span><span class="w"> </span><span class="err">whe</span><span class="kc">n</span><span class="w"> </span><span class="err">clay</span><span class="w"> </span><span class="err">mi</span><span class="kc">nerals</span><span class="w"> </span><span class="err">come</span><span class="w"> </span><span class="err">i</span><span class="kc">n</span><span class="w"> </span><span class="err">co</span><span class="kc">nta</span><span class="err">c</span><span class="kc">t</span><span class="w"> </span><span class="err">wi</span><span class="kc">t</span><span class="err">h</span><span class="w"> </span><span class="err">a</span><span class="kc">n</span><span class="err">d</span><span class="w"> </span><span class="err">i</span><span class="kc">ntera</span><span class="err">c</span><span class="kc">t</span><span class="w"> </span><span class="err">wi</span><span class="kc">t</span><span class="err">h</span><span class="w"> </span><span class="err">wa</span><span class="kc">ter</span><span class="err">.The</span><span class="w"> </span><span class="err">clay</span><span class="w"> </span><span class="err">a</span><span class="kc">n</span><span class="err">d</span><span class="w"> </span><span class="err">wa</span><span class="kc">ter</span><span class="w"> </span><span class="err">crea</span><span class="kc">te</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">co</span><span class="kc">nf</span><span class="err">i</span><span class="kc">n</span><span class="err">i</span><span class="kc">n</span><span class="err">g</span><span class="w"> </span><span class="err">e</span><span class="kc">n</span><span class="err">viro</span><span class="kc">n</span><span class="err">me</span><span class="kc">nt</span><span class="w"> </span><span class="err">pro</span><span class="kc">te</span><span class="err">c</span><span class="kc">t</span><span class="err">i</span><span class="kc">n</span><span class="err">g</span><span class="w"> </span><span class="err">DNA</span><span class="w"> </span><span class="err">a</span><span class="kc">n</span><span class="err">d</span><span class="w"> </span><span class="err">RNA</span><span class="w"> </span><span class="kc">fun</span><span class="err">c</span><span class="kc">t</span><span class="err">io</span><span class="kc">ns</span><span class="w"> </span><span class="err">i</span><span class="kc">ns</span><span class="err">ide</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="err">polymer.Po</span><span class="kc">tent</span><span class="err">ial</span><span class="w"> </span><span class="err">si</span><span class="kc">tes</span><span class="w"> </span><span class="kc">t</span><span class="err">o</span><span class="w"> </span><span class="err">look</span><span class="w"></span>
+<span class="w">        </span><span class="kc">f</span><span class="err">or</span><span class="w"> </span><span class="err">clay</span><span class="w"> </span><span class="err">hydrogels</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">alluvial</span><span class="w"> </span><span class="kc">fans</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="err">ple</span><span class="kc">nt</span><span class="err">i</span><span class="kc">ful</span><span class="w"> </span><span class="err">i</span><span class="kc">n</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="err">sou</span><span class="kc">t</span><span class="err">her</span><span class="kc">n</span><span class="w"> </span><span class="err">hemisphere</span><span class="w"> </span><span class="err">o</span><span class="kc">f</span><span class="w"> </span><span class="err">Mars.Alluvial</span><span class="w"> </span><span class="kc">fans</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">charac</span><span class="kc">ter</span><span class="err">ized</span><span class="w"> </span><span class="err">as</span><span class="w"> </span><span class="err">la</span><span class="kc">n</span><span class="err">d</span><span class="kc">f</span><span class="err">orms</span><span class="w"> </span><span class="kc">t</span><span class="err">ha</span><span class="kc">t</span><span class="w"> </span><span class="err">make</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">semi</span><span class="w"> </span><span class="err">co</span><span class="kc">n</span><span class="err">ical</span><span class="w"> </span><span class="err">shape</span><span class="w"> </span><span class="err">ou</span><span class="kc">t</span><span class="w"> </span><span class="err">o</span><span class="kc">f</span><span class="w"> </span><span class="err">sedime</span><span class="kc">nt</span><span class="w"> </span><span class="err">deposi</span><span class="kc">ts</span><span class="w"> </span><span class="kc">f</span><span class="err">ormi</span><span class="kc">n</span><span class="err">g</span><span class="w"> </span><span class="err">as</span><span class="w"> </span><span class="err">wa</span><span class="kc">ter</span><span class="w"> </span><span class="err">carries</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="err">sedime</span><span class="kc">nt</span><span class="w"> </span><span class="kc">fr</span><span class="err">om</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">s</span><span class="kc">tee</span><span class="err">p</span><span class="w"> </span><span class="err">slope</span><span class="w"> </span><span class="err">ups</span><span class="kc">trea</span><span class="err">m</span><span class="w"> </span><span class="kc">t</span><span class="err">o</span><span class="w"> </span><span class="err">a</span><span class="kc">n</span><span class="w"> </span><span class="err">u</span><span class="kc">n</span><span class="err">co</span><span class="kc">nf</span><span class="err">i</span><span class="kc">ne</span><span class="err">d</span><span class="w"> </span><span class="err">drai</span><span class="kc">na</span><span class="err">ge</span><span class="w"> </span><span class="err">ou</span><span class="kc">tlet</span><span class="w"> </span><span class="err">dow</span><span class="kc">nstrea</span><span class="err">m</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="err">o</span><span class="kc">ften</span><span class="w"> </span><span class="err">i</span><span class="kc">n</span><span class="w"> </span><span class="kc">flatter</span><span class="w"> </span><span class="kc">terra</span><span class="err">i</span><span class="kc">n</span><span class="err">.Due</span><span class="w"> </span><span class="kc">t</span><span class="err">o</span><span class="w"> </span><span class="kc">t</span><span class="err">heir</span><span class="w"> </span><span class="err">mi</span><span class="kc">neral</span><span class="w"> </span><span class="err">composi</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="err">wa</span><span class="kc">ter</span><span class="w"> </span><span class="err">origi</span><span class="kc">n</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="err">a</span><span class="kc">n</span><span class="err">d</span><span class="w"> </span><span class="err">loca</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="w"> </span><span class="kc">t</span><span class="err">hrough</span><span class="w"> </span><span class="mi">-</span><span class="w"> </span><span class="err">ou</span><span class="kc">t</span><span class="w"> </span><span class="err">Mars</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="err">alluvial</span><span class="w"> </span><span class="kc">fans</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="err">per</span><span class="kc">fe</span><span class="err">c</span><span class="kc">t</span><span class="w"> </span><span class="err">si</span><span class="kc">te</span><span class="w"> </span><span class="kc">t</span><span class="err">o</span><span class="w"> </span><span class="err">i</span><span class="kc">n</span><span class="err">ves</span><span class="kc">t</span><span class="err">iga</span><span class="kc">te</span><span class="w"> </span><span class="err">i</span><span class="kc">n</span><span class="w"> </span><span class="kc">t</span><span class="err">he</span><span class="w"> </span><span class="err">search</span><span class="w"></span>
+<span class="w">        </span><span class="kc">f</span><span class="err">or</span><span class="w"> </span><span class="err">preserved</span><span class="w"> </span><span class="err">bio</span><span class="w"> </span><span class="mi">-</span><span class="w"> </span><span class="err">sig</span><span class="kc">natures</span><span class="err">.</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;tag_file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;aptrust-info.txt&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;tag_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Access&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Consortia&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;tag_file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;aptrust-info.txt&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;tag_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Storage&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Standard&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;tag_file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;aptrust-info.txt&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;tag_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Storage-Option&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Standard&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}]</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>There's quite a bit of information here. Most of it is used during bag validation, and then copied into the registry when ingest completes. Note that a WorkItem's object record is visible to APTrust admins on the Registry's WorkItem detail page.</p>
+<p>The object's size and file count attributes can be useful in determining why an object moves slowly through the ingest process. Multi-terabyte objects take a long time to read and copy, while bags containing tens of thousands of files incur enormous overhead (checksumming, format identification, re-ingest lookups, copying to S3, etc. have to be performed on each file).</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Components" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Components
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../nsq/" class="md-footer__link md-footer__link--next" aria-label="Next: NSQ" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              NSQ
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.8492ddcf.min.js"></script>
+      
+    
+  </body>
+</html>
