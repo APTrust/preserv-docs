@@ -35,7 +35,6 @@ nav:
       - components/index.md
       - components/redis.md
       - components/nsq.md
-      - components/workers.md
       - components/registry.md
       - components/s3.md
   - Workers:
