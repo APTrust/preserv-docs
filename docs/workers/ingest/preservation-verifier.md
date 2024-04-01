@@ -4,6 +4,8 @@ The preservation verifier checks that all of the files copied by the preservatio
 
 If any check fails, the verifier marks the ingest as failed, sets a note about the missing/incorrect file in the note field of the WorkItem, and sets the WorkItem's `NeedsAdminReview` flag to true.
 
+In case you're wondering why this component exists, see [Why Does the Preservation Verifier Exist?](../../../overview#why-does-the-preservation-verifier-exist)
+
 ## Resources
 
 Though this worker may issue a number of S3 requests, it does not use much network bandwidth because HEAD requests tend to return about 1 kb of data. The worker uses little CPU and memory, and tends to finish quickly.
