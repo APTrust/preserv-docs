@@ -58,9 +58,9 @@ The key for each WorkItem in Redis is the WorkItem ID. The value is a hash of su
 
 As you can see from the outline above, there's a direct linear relation between the number of files in a bag and the amount of interim processing data in Redis. In the past, we've ingested bags with over 300,000 files. Ingesting too many files at once can cause Redis to run out of memory. Consider the impact of Redis keep 300,000 3kb JSON blobs in memory at once.
 
-Until we update Preserv's code to work with Redis clusters, we're dealing with this issue by running an Elasticache instance with more RAM than we'll typically need. When Preserv works with Redis running in cluster mode, we'll be able to take advantage of AWS auto-scaling for Elasticache.
+Currently, Elasticache does not scale like the rest of our system. We can't add memory to deal with busy periods and then scale back down when the load is light.
 
-Unfortunately, because of the way our workers connect to and query Redis, this will not be a trivial change.
+In our production system, we have chosen to use an Elasticache instance that has more memory than we generally need so that Redis doesn't run out of memory during periods of very heavy ingest. We may be paying an extra $30/month to have more memory then we need, but this is a worthwhile tradeoff, as it has helped the system weather a number of ingest floods without problems.
 
 ## Querying Redis
 
