@@ -29,6 +29,6 @@ The preservation services [code repository](https://github.com/APTrust/preservat
 | util | Contains utility functions used throughout the codebase. |
 | workers | Contains code to harness the contents of the deletion, fixity, ingest, and restoration directories into usable, NSQ-connected workers. These workers are then loaded by the apps in the apps directory. See [Anatomy of a Worker](/workers/anatomy) for details on how these pieces fit together. |
 | .env | These are settings files for different environments (dev, test, integration, etc.) See [Settings](settings.md) or the comments in the files themselves for info about which settings are available and what they mean. |
-| Dockerfile.build | ? |
-| docker-compose.yml | ? |
+| Dockerfile.build | This file contains instructions for building Docker containers in which to run preservation services. Use `make` to build the containers, as described on the [Docker](docker.md) page. |
 | Makefile | Includes commands to build and publish the Docker containers, and to update the CloudFormation template. See [Docker](docker.md) |
+| docker-compose.yml | This is an historical artifact used in early, proof-of-concept Docker builds. We may use it as a refence if we move to Kubernetes. |
