@@ -828,6 +828,13 @@
 <p>For intellectual object deletions, the worker does the above for all of the object's files, then created a deletion Premis event for the object and changes its state from "A" to "D."</p>
 <p>Finally, it marks the WorkItem complete.</p>
 <p>For items using the <code>Standard</code> storage option, <code>apt_delete</code> expunges both the S3 copy and the Glacier copy of every file. All other storage options keep files in a single bucket or vault, so <code>apt_delete</code> has to expunge from only a single location.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Also see the section on <a href="../overview#bulk_deletions">Bulk Deletions</a>
+on the overview page. APTrust has internal documentation on how to
+create bulk deletion requests and the safeguards surrounding the
+process. See the internal docs for more information.</p>
+</div>
 <h2 id="resources">Resources</h2>
 <p><code>apt_delete</code> uses little CPU, memory, and network bandwidth.</p>
 <h2 id="external-services">External Services</h2>

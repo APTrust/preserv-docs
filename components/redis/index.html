@@ -953,8 +953,8 @@ On dev and test machines, using an .aof file is optional.</p>
 </code></pre></div>
 <h2 id="redis-memory-usage">Redis Memory Usage</h2>
 <p>As you can see from the outline above, there's a direct linear relation between the number of files in a bag and the amount of interim processing data in Redis. In the past, we've ingested bags with over 300,000 files. Ingesting too many files at once can cause Redis to run out of memory. Consider the impact of Redis keep 300,000 3kb JSON blobs in memory at once.</p>
-<p>Until we update Preserv's code to work with Redis clusters, we're dealing with this issue by running an Elasticache instance with more RAM than we'll typically need. When Preserv works with Redis running in cluster mode, we'll be able to take advantage of AWS auto-scaling for Elasticache.</p>
-<p>Unfortunately, because of the way our workers connect to and query Redis, this will not be a trivial change.</p>
+<p>Currently, Elasticache does not scale like the rest of our system. We can't add memory to deal with busy periods and then scale back down when the load is light.</p>
+<p>In our production system, we have chosen to use an Elasticache instance that has more memory than we generally need so that Redis doesn't run out of memory during periods of very heavy ingest. We may be paying an extra $30/month to have more memory then we need, but this is a worthwhile tradeoff, as it has helped the system weather a number of ingest floods without problems.</p>
 <h2 id="querying-redis">Querying Redis</h2>
 <p>You can query Redis directly using the redis-cli on your local machine. Simply run <code>redis-cli</code>, and the CLI will connect to your local Redis instance running on the default port of 6379.</p>
 <p>To query Redis/Elasticache in one of the live environments, you'll have to log into a bastion host and run the redis-cli from there. You'll need to look in Parameter Store for the proper Redis/Elasticache endpoint for your current environment. You can then connect with:</p>

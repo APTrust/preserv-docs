@@ -229,9 +229,171 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Overview
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Overview
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-high-level" class="md-nav__link">
+    The High Level
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ingest" class="md-nav__link">
+    Ingest
+  </a>
+  
+    <nav class="md-nav" aria-label="Ingest">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nsq" class="md-nav__link">
+    NSQ
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rediselasticache" class="md-nav__link">
+    Redis/Elasticache
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-pre-fetch-worker" class="md-nav__link">
+    The Pre-Fetch Worker
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-validation-worker" class="md-nav__link">
+    The Validation Worker
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reingest-check" class="md-nav__link">
+    Reingest Check
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#staging-uploader" class="md-nav__link">
+    Staging Uploader
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#format-identifier" class="md-nav__link">
+    Format Identifier
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#preservation-uploader" class="md-nav__link">
+    Preservation Uploader
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#preservation-verifier" class="md-nav__link">
+    Preservation Verifier
+  </a>
+  
+    <nav class="md-nav" aria-label="Preservation Verifier">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-does-the-preservation-verifier-exist" class="md-nav__link">
+    Why Does the Preservation Verifier Exist?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recorder" class="md-nav__link">
+    Recorder
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cleanup" class="md-nav__link">
+    Cleanup
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#restoration" class="md-nav__link">
+    Restoration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deletion" class="md-nav__link">
+    Deletion
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bulk-deletion" class="md-nav__link">
+    Bulk Deletion
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fixity-checks" class="md-nav__link">
+    Fixity Checks
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -727,6 +889,152 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-high-level" class="md-nav__link">
+    The High Level
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ingest" class="md-nav__link">
+    Ingest
+  </a>
+  
+    <nav class="md-nav" aria-label="Ingest">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nsq" class="md-nav__link">
+    NSQ
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rediselasticache" class="md-nav__link">
+    Redis/Elasticache
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-pre-fetch-worker" class="md-nav__link">
+    The Pre-Fetch Worker
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-validation-worker" class="md-nav__link">
+    The Validation Worker
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reingest-check" class="md-nav__link">
+    Reingest Check
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#staging-uploader" class="md-nav__link">
+    Staging Uploader
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#format-identifier" class="md-nav__link">
+    Format Identifier
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#preservation-uploader" class="md-nav__link">
+    Preservation Uploader
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#preservation-verifier" class="md-nav__link">
+    Preservation Verifier
+  </a>
+  
+    <nav class="md-nav" aria-label="Preservation Verifier">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-does-the-preservation-verifier-exist" class="md-nav__link">
+    Why Does the Preservation Verifier Exist?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recorder" class="md-nav__link">
+    Recorder
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cleanup" class="md-nav__link">
+    Cleanup
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#restoration" class="md-nav__link">
+    Restoration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deletion" class="md-nav__link">
+    Deletion
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bulk-deletion" class="md-nav__link">
+    Bulk Deletion
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fixity-checks" class="md-nav__link">
+    Fixity Checks
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -755,7 +1063,7 @@
 <li>The Registry REST API for storing and retrieving persistent metadata about the content of our preservation repository.</li>
 </ul>
 <p>While other parts of this documentation describe the components in detail, this page provides a graphical overview of the system's components, where they live, and how they communicate.</p>
-<h1 id="the-high-level">The High Level</h1>
+<h2 id="the-high-level">The High Level</h2>
 <p>The components of the system are divided into three privilege zones, with privileges enforced by IAM roles and policies.</p>
 <p>Depositors have access to the leftmost zone in the diagram below. They can upload files into their own receiving buckets for ingest, and download them from their own restoration buckets for retrieval. Depositors can access only their own buckets, no one else's.</p>
 <p><img alt="" src="../img/architecture/Preserv-Zones-01.drawio.png" /></p>
@@ -782,7 +1090,7 @@ cron job is a vestige from the old, unreliable Pharos system, which did
 occasionally fail at queueing requests. It may no longer be needed,
 but we'll keep it around as a failsafe.</p>
 </div>
-<h1 id="ingest">Ingest</h1>
+<h2 id="ingest">Ingest</h2>
 <p>During the ingest process, depositors upload bags (tar files) to their receiving buckets. A cron scans for new bags, creating a WorkItem in the Registry for each one, and then putting that WorkItem's ID into NSQ for the Ingest workers to pick up.</p>
 <p>Ingest workers perform a number of functions, including bag validation, format identification, and more. Then they move files into preservation storage and record the results of their work in the Registry.</p>
 <p><img alt="" src="../img/architecture/Preserv-Ingest-01.drawio.png" /></p>
@@ -791,19 +1099,19 @@ but we'll keep it around as a failsafe.</p>
 <p>In the diagrams below, all ingest workers read to and write from
 both Redis and NSQ. Arrows are omitted to minimize clutter.</p>
 </div>
-<h2 id="nsq">NSQ</h2>
+<h3 id="nsq">NSQ</h3>
 <p>NSQ keeps track of which tasks need to go to which workers. For Ingest, a cron job running in the <code>ingest_bucket_reader</code> container creates and queues new WorkItems for each new bag that shows up in a receiving bucket.</p>
 <p>For deletion and restoration, users make requests through the Registry Web UI, and Registry pushes the WorkItem IDs into NSQ's deletion and restoration topics.</p>
 <p>For fixity checks, a cron job running in <code>apt_queue_fixity</code> queries Registry for files in S3 or Wasabi storage that have not had a fixity check in 90 days. It pushes the IDs of those files into NSQ, usually in batches of 2,500-3,000 every half hour.</p>
 <p><img alt="" src="../img/architecture/Preserv-Ingest-01-NSQ.drawio.png" /></p>
-<h2 id="rediselasticache">Redis/Elasticache</h2>
+<h3 id="rediselasticache">Redis/Elasticache</h3>
 <p>Redis stores info about what work has already been done on any task in the ingest process. New workers can pick up partially completed tasks and pick up work where the last worker left off. The housekeeping data in Redis ensures two things:</p>
 <ol>
 <li>that no work is skipped or left incomplete</li>
 <li>that completed work is not unnecessarily repeated</li>
 </ol>
 <p><img alt="" src="../img/architecture/Preserv-Ingest-01-Redis.drawio.png" /></p>
-<h2 id="the-pre-fetch-worker">The Pre-Fetch Worker</h2>
+<h3 id="the-pre-fetch-worker">The Pre-Fetch Worker</h3>
 <p>The pre-fetch worker streams a bag from a depositor's receiving bucket through a series of functions to do the following:</p>
 <ol>
 <li>Gather a list of files in the bag.</li>
@@ -811,39 +1119,43 @@ both Redis and NSQ. Arrows are omitted to minimize clutter.</p>
 <li>Extract tag files, manifests, and tag manifests to an S3 staging bucket for later processing.</li>
 </ol>
 <p><img alt="" src="../img/architecture/Preserv-Ingest-02-Pre-Fetch.drawio.png" /></p>
-<h2 id="the-validation-worker">The Validation Worker</h2>
+<h3 id="the-validation-worker">The Validation Worker</h3>
 <p>The validation worker ensures a bag is valid according to its BagIt profile. APTrust currently supports APTrust and BTR (Beyond the Repository) BagIt formats.</p>
 <p>A bag is valid if it contains all of the payload files mentioned in the manifests, and if the checksums of those files match the checksums in the manifests. The bag must also contain a set of BagIt standard tags with valid values, plus whatever tags are required by the specified BagIt profile.</p>
 <p>Note that profiles also specify which checksum algorithms and required and which others are permitted. The validator enforces those rules as well. If a bag is incomplete, if it contains extraneous payload files not mentioned in the manifests, or if it is missing required tags or required checksum algoriths, it will fail validation, the system will not ingest it, and processing stops here.</p>
 <p>The validation worker tends to complete its work quickly, generally in a fraction of a second. It simply analyzes all of the metadata stored in Redis by the pre-fetch worker, which as already done the hard work of inventorying contents and calculating checksums.</p>
 <p><img alt="" src="../img/architecture/Preserv-Ingest-03-Validate.drawio.png" /></p>
-<h2 id="reingest-check">Reingest Check</h2>
+<h3 id="reingest-check">Reingest Check</h3>
 <p>The reingest checker asks Registry if this bag has ever been ingested before. Bags have unique identifiers composed of the identifier of the owning instituion, followed by a slash and the name of the bag, minus the .tar extension. For example, if the University of Virginia uploads a bag called <code>photos.tar</code>, the bag's Intellectual Object Identifier becomes <code>virginia.edu/photos</code>.</p>
 <p>If the Registry has an active (non-deleted) record of an object whose identifier matches the one we're currently ingesting, it checks each file in the new bag against records in the registry. If the file exists in Registry, the worker compares the Registry checksum to the checksum calculated by the pre-fetch worker.</p>
 <p>If the checksum has changed, or if the file does not exist in Registry, the worker flags the file as needing to be saved to preservation storage. If Registry already has a record of this file and the checksum has not changed, the file will be flagged as not needing to be copied to preservation.</p>
 <p>The reingest checker prevents us from storing duplicate copies of existing files under new UUIDs. (Everything in preservation storage is stored with a UUID key, not its original file name.)</p>
 <p><img alt="" src="../img/architecture/Preserv-Ingest-03-ReingestCheck.drawio.png" /></p>
-<h2 id="staging-uploader">Staging Uploader</h2>
+<h3 id="staging-uploader">Staging Uploader</h3>
 <p>The staging uploader unpacks bags from depositor ingest buckets and stores their individual files in an S3 staging bucket. Files in the staging bucket are stored with a key composed of WorkItem ID and file UUID. E.g. <code>34546/ddeff40b-f995-42f0-b002-389cf331193d</code>.</p>
 <p>Subsequent workers that need to access these files can retrieve them from this staging bucket. S3 works well for write-once/read-multiple workloads. Because it's a network resource, not tied to local block storage, its contents are available to all of our ingest workers.</p>
 <p><img alt="" src="../img/architecture/Preserv-Ingest-04-Staging.drawio.png" /></p>
-<h2 id="format-identifier">Format Identifier</h2>
+<h3 id="format-identifier">Format Identifier</h3>
 <p>The format identifier streams files from the staging bucket through a set of algorithms that compare the file's bits to known signatures in the PRONOM registry. It updates each file record in Redis with the file's mime type.</p>
 <p><img alt="" src="../img/architecture/Preserv-Ingest-06-FormatID.drawio.png" /></p>
-<h2 id="preservation-uploader">Preservation Uploader</h2>
+<h3 id="preservation-uploader">Preservation Uploader</h3>
 <p>The preservation upload copies files from the staging bucket to preservation storage.</p>
 <p><img alt="" src="../img/architecture/Preserv-Ingest-07-Storage.drawio.png" /></p>
-<h2 id="preservation-verifier">Preservation Verifier</h2>
+<h3 id="preservation-verifier">Preservation Verifier</h3>
 <p>The preservation verifier performs a HEAD request on every item copied into preservation storage to retrieve its metadata. Where possible, it compares each file's etag in preservation storage to its md5 checksum to ensure integrity. Etag comparison isn't possible on larger files, so it compares the file size in preservation with its know file size.</p>
 <p>The verifier is basically a sanity check to provide basic assurance that files were successfully copied to preservation.</p>
 <p><img alt="" src="../img/architecture/Preserv-Ingest-08-StorageValidation.drawio.png" /></p>
-<h2 id="recorder">Recorder</h2>
+<h4 id="why-does-the-preservation-verifier-exist">Why Does the Preservation Verifier Exist?</h4>
+<p>We added this step to our older ingest system in 2017 after a bug in the AWS S3 client caused a number of files to be written to S3 with zero bytes. The zero-byte bug persisted for years. (APTrust has some internal documentation on this issue.)</p>
+<p>To work around it, our old preservation uploader started asking S3, immediately after upload, how many bytes it had just sent. Oddly enough, whenever S3 received zero bytes, it would reply that it had received 8 TB. (AWS refutes this, but we have literally tens of thousands of log entries refuting their refutation.) The old preservation uploader would rewrite the file to S3 whenever S3 returned a different number of bytes than what we knew we had written.</p>
+<p>The current ingest system uses the Minio S3 client, which has never shown the zero-byte bug, but we wanted to keep this sanity check in place after experiencing the cost of <em>not</em> having it.</p>
+<h3 id="recorder">Recorder</h3>
 <p>The recorder records metadata about the ingest in the Registry, including info about the Intellectual Object and all of its files. For each file, it records checksums, storage records and a set of ingest Premis events. It also records Premis events for the object.</p>
 <p><img alt="" src="../img/architecture/Preserv-Ingest-09-RecordMetadata.drawio.png" /></p>
-<h2 id="cleanup">Cleanup</h2>
+<h3 id="cleanup">Cleanup</h3>
 <p>The cleanup worker deletes the original bag from the depositor's receiving bucket, then deletes all interim processing data from the S3 staging bucket and Redis. Finally, it marks the ingest as complete in the Registry and in NSQ.</p>
 <p><img alt="" src="../img/architecture/Preserv-Ingest-10-Cleanup.drawio.png" /></p>
-<h1 id="restoration">Restoration</h1>
+<h2 id="restoration">Restoration</h2>
 <p>APTrust users initiate object and file restoration through the Registry Web UI. They click a button to restore either an individual file, or an entire intellectual object (a bag).</p>
 <p><img alt="" src="../img/architecture/Preserv-Restoration-01.drawio.png" /></p>
 <p>Clicking the button causes Registry to create a restoration WorkItem, and to add the WorkItem ID to one of three NSQ topics:</p>
@@ -858,14 +1170,24 @@ both Redis and NSQ. Arrows are omitted to minimize clutter.</p>
 <p>While the file restorer ensures a file's checksums are correct before making a restoration copy, the object restorer reassembles and validates an entire bag full of files. It does this on the fly, streaming files into a bag in the restoration bucket without those files ever touching local disk. It calculates checksums as it goes, ensuring the bag is valid and complete. If the bag is not valid or is incomplete, the restoration WorkItem will be marked as failed in the Registry.</p>
 <p><img alt="" src="../img/architecture/Preserv-Restoration-03.drawio.png" /></p>
 <p>Note that because we rebuild bags when we restore them, the restored bag will not exactly match the original bag. The payload should be the same (unless the depositor deleted some files before the restoration), but the order of files within the tar archive may differ.</p>
-<p>In addition, we store both the bag-info.txt and aptrust-info.txt files with the payload in preservation, and we give those back to the depositor upon restoration. Depositors have been storing essential metadata in bag-info and aptrust-info, and they want that info back when they do a restoration.</p>
-<h1 id="deletion">Deletion</h1>
+<p>In addition, we store the bag-info.txt, aptrust-info.txt and any other files outside the bag's payload directory, except bagit.txt and fetch.txt. We give these back to the depositor upon restoration. Depositors have been storing essential metadata in bag-info.txt, aptrust-info.txt and other non-payload files, and they want that info back when they do a restoration.</p>
+<h2 id="deletion">Deletion</h2>
 <p>Deletions are also initiated in the Registry. Once a deletion request has been created and approved by an institutional admin, Registry creates a deletion WorkItem and queues it in NSQ's <code>delete_item</code> topic.</p>
 <p><img alt="" src="../img/architecture/Preserv-Deletion-01.drawio.png" /></p>
 <p>For file deletions, the deletion worker deletes all copies of the specified file from all known locations. That's typically either one S3 bucket, one Glacier vault, or one Wasabi bucket. Items in Standard storage are deleted from both S3 in Virginia and Glacier in Oregon.</p>
 <p>For object deletions, the deletion worker deletes all copies of all files that belong to the specified object.</p>
 <p>After deletion, the worker records deletion Premis events for all of the deleted files, changes the state of those files from <code>A</code> (active) to <code>D</code> (deleted) in the Registry, and marks the WorkItem as done. For object deletions, the worker changes the object state to <code>D</code> and records a deletion Premis event for the object.</p>
-<h1 id="fixity-checks">Fixity Checks</h1>
+<h2 id="bulk-deletion">Bulk Deletion</h2>
+<p>Bulk deletion is a new feature, as of early 2024. We do not expose this feature to depositors because of its potential danger. If you would like to initial a bulk deletion, please contact <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#104;&#101;&#108;&#112;&#64;&#97;&#112;&#116;&#114;&#117;&#115;&#116;&#46;&#111;&#114;&#103;">&#104;&#101;&#108;&#112;&#64;&#97;&#112;&#116;&#114;&#117;&#115;&#116;&#46;&#111;&#114;&#103;</a>.</p>
+<p>The basic process goes like this:</p>
+<ol>
+<li>You send APTrust a list of object identifiers. These identify objects you want to delete.</li>
+<li>APTrust create a set of deletion requests on your behalf.</li>
+<li>Registry sends a deletion approval email to administrators at your institution showing what is to be deleted and requesting they approve or deny the request.</li>
+<li>Once an administrator approves the deletion, preservation services begins deleting the objects.</li>
+</ol>
+<p>We typically delete objects in batches of 500-1000 at a time. Therefore, a request to delete 2000 objects would likely result in two bulk deletions with two separate emails requiring approval.</p>
+<h2 id="fixity-checks">Fixity Checks</h2>
 <p>A containerized cron job called <code>apt_queue_fixity</code> runs every half hour or so, asking the Registry for a list of files stored in S3 or Wasabi that have not had a fixity check in the past 90 days. We do not check fixity on items in Glacier or Glacier Deep storage.</p>
 <p><code>apt_queue_fixity</code> pushes the Generic File IDs of files needing a fixity check into the <code>fixity_check</code> queue, usually in batches of 2,500 or 3,000.</p>
 <p><img alt="" src="../img/architecture/Preserv-Fixity.drawio.png" /></p>
