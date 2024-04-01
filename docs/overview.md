@@ -10,7 +10,7 @@ Preservation services consists of the following components:
 
 While other parts of this documentation describe the components in detail, this page provides a graphical overview of the system's components, where they live, and how they communicate.
 
-# The High Level
+## The High Level
 
 The components of the system are divided into three privilege zones, with privileges enforced by IAM roles and policies.
 
@@ -51,7 +51,7 @@ The diagram below shows all of the components in their respective zones. Details
     but we'll keep it around as a failsafe.
 
 
-# Ingest
+## Ingest
 
 During the ingest process, depositors upload bags (tar files) to their receiving buckets. A cron scans for new bags, creating a WorkItem in the Registry for each one, and then putting that WorkItem's ID into NSQ for the Ingest workers to pick up.
 
@@ -63,7 +63,7 @@ Ingest workers perform a number of functions, including bag validation, format i
     In the diagrams below, all ingest workers read to and write from
     both Redis and NSQ. Arrows are omitted to minimize clutter.
 
-## NSQ
+### NSQ
 
 NSQ keeps track of which tasks need to go to which workers. For Ingest, a cron job running in the `ingest_bucket_reader` container creates and queues new WorkItems for each new bag that shows up in a receiving bucket.
 
@@ -73,7 +73,7 @@ For fixity checks, a cron job running in `apt_queue_fixity` queries Registry for
 
 ![](img/architecture/Preserv-Ingest-01-NSQ.drawio.png)
 
-## Redis/Elasticache
+### Redis/Elasticache
 
 Redis stores info about what work has already been done on any task in the ingest process. New workers can pick up partially completed tasks and pick up work where the last worker left off. The housekeeping data in Redis ensures two things:
 
@@ -82,7 +82,7 @@ Redis stores info about what work has already been done on any task in the inges
 
 ![](img/architecture/Preserv-Ingest-01-Redis.drawio.png)
 
-## The Pre-Fetch Worker
+### The Pre-Fetch Worker
 
 The pre-fetch worker streams a bag from a depositor's receiving bucket through a series of functions to do the following:
 
@@ -92,7 +92,7 @@ The pre-fetch worker streams a bag from a depositor's receiving bucket through a
 
 ![](img/architecture/Preserv-Ingest-02-Pre-Fetch.drawio.png)
 
-## The Validation Worker
+### The Validation Worker
 
 The validation worker ensures a bag is valid according to its BagIt profile. APTrust currently supports APTrust and BTR (Beyond the Repository) BagIt formats.
 
@@ -104,7 +104,7 @@ The validation worker tends to complete its work quickly, generally in a fractio
 
 ![](img/architecture/Preserv-Ingest-03-Validate.drawio.png)
 
-## Reingest Check
+### Reingest Check
 
 The reingest checker asks Registry if this bag has ever been ingested before. Bags have unique identifiers composed of the identifier of the owning instituion, followed by a slash and the name of the bag, minus the .tar extension. For example, if the University of Virginia uploads a bag called `photos.tar`, the bag's Intellectual Object Identifier becomes `virginia.edu/photos`.
 
@@ -116,7 +116,7 @@ The reingest checker prevents us from storing duplicate copies of existing files
 
 ![](img/architecture/Preserv-Ingest-03-ReingestCheck.drawio.png)
 
-## Staging Uploader
+### Staging Uploader
 
 The staging uploader unpacks bags from depositor ingest buckets and stores their individual files in an S3 staging bucket. Files in the staging bucket are stored with a key composed of WorkItem ID and file UUID. E.g. `34546/ddeff40b-f995-42f0-b002-389cf331193d`.
 
@@ -124,19 +124,19 @@ Subsequent workers that need to access these files can retrieve them from this s
 
 ![](img/architecture/Preserv-Ingest-04-Staging.drawio.png)
 
-## Format Identifier
+### Format Identifier
 
 The format identifier streams files from the staging bucket through a set of algorithms that compare the file's bits to known signatures in the PRONOM registry. It updates each file record in Redis with the file's mime type.
 
 ![](img/architecture/Preserv-Ingest-06-FormatID.drawio.png)
 
-## Preservation Uploader
+### Preservation Uploader
 
 The preservation upload copies files from the staging bucket to preservation storage.
 
 ![](img/architecture/Preserv-Ingest-07-Storage.drawio.png)
 
-## Preservation Verifier
+### Preservation Verifier
 
 The preservation verifier performs a HEAD request on every item copied into preservation storage to retrieve its metadata. Where possible, it compares each file's etag in preservation storage to its md5 checksum to ensure integrity. Etag comparison isn't possible on larger files, so it compares the file size in preservation with its know file size.
 
@@ -144,19 +144,27 @@ The verifier is basically a sanity check to provide basic assurance that files w
 
 ![](img/architecture/Preserv-Ingest-08-StorageValidation.drawio.png)
 
-## Recorder
+#### Why Does the Preservation Verifier Exist?
+
+We added this step to our older ingest system in 2017 after a bug in the AWS S3 client caused a number of files to be written to S3 with zero bytes. The zero-byte bug persisted for years. (APTrust has some internal documentation on this issue.)
+
+To work around it, our old preservation uploader started asking S3, immediately after upload, how many bytes it had just sent. Oddly enough, whenever S3 received zero bytes, it would reply that it had received 8 TB. (AWS refutes this, but we have literally tens of thousands of log entries refuting their refutation.) The old preservation uploader would rewrite the file to S3 whenever S3 returned a different number of bytes than what we knew we had written.
+
+The current ingest system uses the Minio S3 client, which has never shown the zero-byte bug, but we wanted to keep this sanity check in place after experiencing the cost of _not_ having it.
+
+### Recorder
 
 The recorder records metadata about the ingest in the Registry, including info about the Intellectual Object and all of its files. For each file, it records checksums, storage records and a set of ingest Premis events. It also records Premis events for the object.
 
 ![](img/architecture/Preserv-Ingest-09-RecordMetadata.drawio.png)
 
-## Cleanup
+### Cleanup
 
 The cleanup worker deletes the original bag from the depositor's receiving bucket, then deletes all interim processing data from the S3 staging bucket and Redis. Finally, it marks the ingest as complete in the Registry and in NSQ.
 
 ![](img/architecture/Preserv-Ingest-10-Cleanup.drawio.png)
 
-# Restoration
+## Restoration
 
 APTrust users initiate object and file restoration through the Registry Web UI. They click a button to restore either an individual file, or an entire intellectual object (a bag).
 
@@ -180,9 +188,9 @@ While the file restorer ensures a file's checksums are correct before making a r
 
 Note that because we rebuild bags when we restore them, the restored bag will not exactly match the original bag. The payload should be the same (unless the depositor deleted some files before the restoration), but the order of files within the tar archive may differ.
 
-In addition, we store both the bag-info.txt and aptrust-info.txt files with the payload in preservation, and we give those back to the depositor upon restoration. Depositors have been storing essential metadata in bag-info and aptrust-info, and they want that info back when they do a restoration.
+In addition, we store the bag-info.txt, aptrust-info.txt and any other files outside the bag's payload directory, except bagit.txt and fetch.txt. We give these back to the depositor upon restoration. Depositors have been storing essential metadata in bag-info.txt, aptrust-info.txt and other non-payload files, and they want that info back when they do a restoration.
 
-# Deletion
+## Deletion
 
 Deletions are also initiated in the Registry. Once a deletion request has been created and approved by an institutional admin, Registry creates a deletion WorkItem and queues it in NSQ's `delete_item` topic.
 
@@ -194,7 +202,20 @@ For object deletions, the deletion worker deletes all copies of all files that b
 
 After deletion, the worker records deletion Premis events for all of the deleted files, changes the state of those files from `A` (active) to `D` (deleted) in the Registry, and marks the WorkItem as done. For object deletions, the worker changes the object state to `D` and records a deletion Premis event for the object.
 
-# Fixity Checks
+## Bulk Deletion
+
+Bulk deletion is a new feature, as of early 2024. We do not expose this feature to depositors because of its potential danger. If you would like to initial a bulk deletion, please contact help@aptrust.org.
+
+The basic process goes like this:
+
+1. You send APTrust a list of object identifiers. These identify objects you want to delete.
+2. APTrust create a set of deletion requests on your behalf.
+3. Registry sends a deletion approval email to administrators at your institution showing what is to be deleted and requesting they approve or deny the request.
+4. Once an administrator approves the deletion, preservation services begins deleting the objects.
+
+We typically delete objects in batches of 500-1000 at a time. Therefore, a request to delete 2000 objects would likely result in two bulk deletions with two separate emails requiring approval.
+
+## Fixity Checks
 
 A containerized cron job called `apt_queue_fixity` runs every half hour or so, asking the Registry for a list of files stored in S3 or Wasabi that have not had a fixity check in the past 90 days. We do not check fixity on items in Glacier or Glacier Deep storage.
 

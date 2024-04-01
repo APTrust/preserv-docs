@@ -42,7 +42,7 @@ The `bag_restorer` does the following when restoring an object:
 
 Validation occurs during the bagging process, so we don't have to re-read the tar file from the restoration bucket. Validation will fail if any files that Registry says are part of the bag are missing from storage or have invalid checksums.
 
-Note that we keep the original bag-info.txt and aptrust-info.txt files that we received during the last ingest of this bag, and we restore them to the tar file.
+Note that we keep the original bag-info.txt and aptrust-info.txt files that we received during the last ingest of this bag, and we restore them to the tar file. In fact, we preserve all files outside of the original bag's data directory except manifests, tag manifests and fetch.txt files. We do this because it's common for depositors to include important metadata in custom tag files.
 
 !!! Note
 

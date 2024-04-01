@@ -12,6 +12,12 @@ Finally, it marks the WorkItem complete.
 
 For items using the `Standard` storage option, `apt_delete` expunges both the S3 copy and the Glacier copy of every file. All other storage options keep files in a single bucket or vault, so `apt_delete` has to expunge from only a single location.
 
+!!! Note
+    Also see the section on [Bulk Deletions](../overview#bulk_deletions)
+    on the overview page. APTrust has internal documentation on how to
+    create bulk deletion requests and the safeguards surrounding the
+    process. See the internal docs for more information.
+
 ## Resources
 
 `apt_delete` uses little CPU, memory, and network bandwidth.
