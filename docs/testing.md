@@ -78,11 +78,11 @@ The following command runs all the tests:
 
 Note the the integration test suite implicitly runs the unit tests. Also note that the `&&` will prevent the end-to-end tests from running if the integration tests fail.
 
-## Interactive Tests
+## Interactive Tests with DART 3
 
 `./scripts/test.rb interactive` will not run any automated tests, but will spin up a whole APTrust environment on which you can run manual tests. The environment includes Minio, NSQ, Redis, and Registry.
 
-This option is useful in cases where you want to test a fix for a bag that failed ingest on a live system due to an error. Did your fix work? Try this:
+This option is useful to manually test ingests, restorations and deletions. It's also handy in cases where you want to test a fix for a bag that failed ingest on a live system due to an error. Did your fix work? Try this:
 
 1. Download the failed bag from the depositor's receiving bucket.
 2. Run `./scripts/test.rb interactive`
@@ -91,6 +91,51 @@ This option is useful in cases where you want to test a fix for a bag that faile
 The bucket reader will find the bag in a few seconds and queue it for ingest. You can watch it go through at http://localhost:8080. The logins should be pre-populated.
 
 You can tail the logs in ~/tmp/logs to see what the workers are doing. And you can look directly into the Redis interim processing data. See [Querying Redis](/components/redis#querying-redis) for more info.
+
+To create some new bags and push them through the system, clone the dart-runner repo from https://github.com/APTrust/dart-runner and then at the command prompt:
+
+1. Change into the top-level directory of dart-runner.
+2. Start DART 3 with the command `go run dart/main.go`.
+
+Now go to `http://localhost:8444` and you'll see the DART 3 UI. From here, you can create a new bag and upload it to the local Minio service for ingest.
+
+First, create a new Storage Service that points to the local Minio instance, so you can upload the bag to a bucket where preservation services will see it:
+
+1. Choose **Settings > Storage Services** from the top menu of DART 3.
+1. Click the **New** button.
+1. Apply the settings in the table below.
+
+| Name | Value |
+| ---- | ----- |
+| Name | Local Minio |
+| Description | test.edu receiving bucket on local Minio instance |
+| Protocol | s3 |
+| Host | localhost |
+| Port | 9899 |
+| Bucket | aptrust.receiving.test.test.edu |
+| Allows Upload | Yes |
+| Allows Download | Yes |
+| Access Key ID | minioadmin |
+| Secret Access Key | minioadmin |
+
+Save the new Storage Service, then click on it in the list of Storage Services. You sould see a **Test Connection** button in the top right corner. Click that, and you should see a message that says the connection succeeded.
+
+Now create a job to upload a new bag to the locally-running preservation services:
+
+1. Choose `Jobs > New` from DART 3's top menu.
+1. Drag some files from the left pane to the drop zone on the right to include them in the bag.
+1. On the packaging screen, choose **BagIt** and the format, and **APTrust** as the BagIt profile. Give your bag a name and click next.
+1. Fill out the required fields on the metadata page and click **Next**.
+1. On the Upload Targets page, check the box next to **Local Minio - test.edu** and then click the **Next** button.
+1. Click the green **Run Job** button.
+
+You should see DART create, validate, and upload the bag. Now go to Registry at `http://localhost:8080` and check the Work Items page. You should see that preservation services is ingesting the bag you just uploaded.
+
+If you want to look into the locally running Minio instance, go to `http://localhost:9899` if preservation services is running Minio on bare metal or `http://localhost:9001` if it's running in Docker. You can log in with username `minioadmin` and password `minioadmin`. You can browse the buckets from there.
+
+You can kill the running DART 3 instance with Command-C in the terminal that lauched DART 3. You can kill the locally running preservation services/registry/minio/redis cluster with a Control-C in the terminal that launched it.
+
+**Note**: Each time you run preservation services' `./scripts/test.rb interactive` command, it wipes out and resets your local Registry data.
 
 ## Local bin Directory
 
